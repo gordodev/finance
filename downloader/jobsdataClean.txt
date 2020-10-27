@@ -1,0 +1,707 @@
+10/9 jobs found:
+morgan stanley services group inc. seeks a vice president, application support in new york, ny
+provide subject matter expert (sme) capabilities for java/j2ee, python, datawarehouse and big data based applications under global banking and technology division. perform root cause analysis for application outages/incidents, and take ownership of production problem, related incidents and end user requests. investigate and resolve end-user issues relating to these applications, troubleshoot infrastructure issues, update documentation and knowledge base, schedule jobs, monitor applications, address escalations, conduct triage calls, and take proactive initiatives to stabilize and improve plant. understand the overall business flow of supported application systems and its interface with clients. act as an escalation point to level 3 support. liaise with internal and external service providers to develop, test and implement application releases. assist with infrastructure and technology roadmap compliance remediation. within the application support space, be accountable for the production environments as well as the non-production environments for the existing gbt (global banking & technology) applications and be part of 24/7 production support coverage. perform platform disaster recovery exercises to ensure the stability of applications. assist with requirement analysis, business process analysis, and business impact analysis. perform project and application release planning, release management, knowledge management, incident management and problem analysis
+qualifications
+requirements:
+requires a bachelor’s in computer engineering, computer science, or related field of study and five years of experience in the position offered or assistant vice president, technology lead, software engineer, or related occupation. requires five (5) years of experience with: the finance industry; identifying areas for platform improvements and providing support for business-critical applications with automation; java/j2ee; unix; perl/python/shell scripting; webservices; soap ui;networks;ssl;rdms (relational database management system) skills in databases including microsoft sql server or db2; writing complex sql queries; window deploy and team city; servicenow; sql server; etl;business objects; tomcat; apache; mq messaging services; application and database troubleshooting/issue resolution; process improvements, automation, scope for optimizations; monitoring tools including splunk, extra hop, sockeye, appdynamics; assisting with infrastructure and technology roadmap compliance remediation; and utilizing itil framework best practices to develop and execute platform release strategies. requires three (3) years of experience with: autosys.
+our team is seeking to add a application support engineer/analyst for the xae itec team. this role is in itec/mkt/xae team focused on serving the global execution services desk.
+profile required
+day-to-day responsibilities:
+responsible for the fidessa application used by traders, sales and middle office on the trading floor.
+responsibility includes software releases, configuration, monitoring and support of all production system components and infrastructure.
+support, develop and maintain system scripts
+ensure system availability, performance, capacity, and monitoring through proper response to incidents, events and problems.
+troubleshoot technical or functional issues in a complex financial environment to provide timely resolution, with various applications and platforms that are global.
+partner with global development and application support teams in new york, montreal, paris, bucharest, bangalore and hong kong. work in follow-the-sun model
+position being on the main trading floor, extensive interaction is expected with traders, sales, developers and quants.
+gaining in-depth exposure to both the business and technology aspects of equity derivatives business.
+bring a passion to stay on top of devops trends, experiment with and learn new cd technologies.
+help or mentor other members of the team, preach and spread devops as religion in the firm.
+develop applications and scripts to automate manual operational tasks as well as build custom real-time monitoring tools and reports.
+profile
+qualifications:
+undergraduate or graduate degree in computer science or related concentration.
+experience needed:
+2+ years’ experience in financial services industry
+desired / plus:
+experience with monitoring systems such as itrs / geneos
+direct server side fidessa experience on an enterprise system.
+technical skills:
+comfortable working on unix / linux (sysadmin, shell scripting, etc.) and windows environments.
+experience working with relational databases, excellent sql skills.
+desired / plus:
+knowledge of fix and other order/rfq/trading protocols.
+oracle databases
+task schedulers (autosys)
+strong with in scripting language (shell,tcl, perl, python, etc.)
+understanding of the agile and continuous delivery.
+networking knowledge
+hands on development experience with (java, c#, c++)
+experience with one or more: source control management systems (git or subversion);
+competencies:
+energetic, self-directed and self-motivated, able to build and sustain long-term relationships with business and colleagues.
+ability to solve problems with a keen eye for details; a strong desire to learn and contribute solutions and ideas to the team.
+exceptional analytical skills, able to apply knowledge and experience to propose creative, value driven viable solutions.
+self-directed, independent and comfortable in a fast paced, ambiguous and matrix environments.
+can manage multiple tasks and use judgment to prioritize and escalate to achieve desired outcomes.
+strong verbal and written communication skills.
+desired / plus:
+knowledge on capital market and investment banking activities.
+knowledge of fidessa order management system
+job description
+we are looking for an individual who is well versed with the application support functions. this position is for supporting the suite of applications used by our alternate investment services division.
+this is a complex suite of applications which are closely interlinked and at the core of our company product offering and provides us with a competitive advantage in the market place. any disruption to service or inaccuracy in these applications will have an adverse impact to our clients, result in reputational damage to jpmorgan and potentially have an adverse financial impact to the organization.
+on a day to day basis application support analyst will be responsible for:
+the resolution of all user and technology issues on the production instance of the ais application suite.
+the support and maintenance of the various unix and windows based application.
+monitor the batch jobs that are scheduled in control-m.
+geneos monitoring - for the application infrastructure & secure file transmissions of the financially sensitive data within the jpmorgan environment and to external clients.
+the coordination and execution of all software deployments into production environments for .net, unix & sql based applications.
+develop specialist knowledge in relevant systems, sharing that knowledge with team members and global partners
+liaising with application development and infrastructure teams targeting on-going development, production activity and release management
+ownership of major production incidents, working closely with other technology teams in order to resolve business-impacting issues
+pro-actively improving the quality of systems and service, and increase business value
+bringing a devops mind-set to the entire software development life cycle, building, evolving and operating rapidly-changing resilient systems at scale
+manage the relationship between the operational users and the technology department. this involves organizing weekly service review meetings and being a key point of escalation for technology issues or concerns within the operational areas.
+qualification:
+bachelor degree in computer science with at least 5 years of application support experience in financial services industry. (prior application development experience is a plus)
+tech skills:
+windows - iis, batch files / power shell
+rdbms - ms sql / oracle
+unix - shell scripting
+schedulers - control-m / autosys
+monitoring - geneos / splunk
+prior knowledge in .net, c#, python is a plus
+soft skills:
+strong written and verbal communication skills
+strong problem solving skills- ability to understand complex component/system/service interactions and look for causes and provide solutions.
+self-driven & proactive
+customer service orientation - build positive working relationships with customers at all times providing realistic information and managing their expectations
+about us
+jpmorgan chase & co., one of the oldest financial institutions, offers innovative financial solutions to millions of consumers, small businesses and many of the world’s most prominent corporate, institutional and government clients under the j.p. morgan and chase brands. our history spans over 200 years and today we are a leader in investment banking, consumer and small business banking, commercial banking, financial transaction processing and asset management.
+we recognize that our people are our strength and the diverse talents they bring to our global workforce are directly linked to our success. we are an equal opportunity employer and place a high value on diversity and inclusion at our company. we do not discriminate on the basis of any protected attribute, including race, religion, color, national origin, gender, sexual orientation, gender identity, gender expression, age, marital or veteran status, pregnancy or disability, or any other basis protected under applicable law. in accordance with applicable law, we make reasonable accommodations for applicants’ and employees’ religious practices and beliefs, as well as any mental health or physical disability needs.
+equal opportunity employer/disability/veterans
+about the team
+our corporate & investment bank relies on innovators like you to build and maintain the technology that helps us safely service the world’s important corporations, governments and institutions. you'll develop solutions that help the bank provide strategic advice, raise capital, manage risk, and extend liquidity in markets spanning over 100 countries around the world.
+position description :
+designs, modifies, develops, writes and implements software programming applications. supports and/or installs software applications/operating systems. participates in the testing process through test review and analysis, test witnessing and certification of software. familiar with standard concepts, practices, and procedures within a information technology field. relies on limited experience and judgment to plan and accomplish goals. performs a variety of tasks. works under general supervision. a certain degree of creativity and latitude is required.
+experience/education requirements and qualifications:
+dod secret security clearance required
+must possess one of the following 8570.01-m iat level 1 certifications: comptia network+ce, comptia a+ ce, ccna-security, or sscp
+applicant needs to be familiar with creating and maintaining code in java, oracle pl/sql, and should be familiar with both unix and windows command-line/shell scripting (including powershell). developers should be familiar with html, javascript, and xml-based coding (schemas, transformation stylesheets, xpath, etc.) as well. familiarity with .net-based applications, including sharepoint-based web applications and asp.net websites running against microsoft sql server, as well as a background in c# and visual basic (through v4.5), and microsoft t-sql is beneficial both for web and winforms/desktop application.
+a bachelor's degree in engineering, computer science, business, physical science, or other related scientific or technical discipline is highly desirable.
+educational experience:
+high school diploma with seven years of specialized experience and nine years of general experience.
+associate’s degree requires four years specialized experience and eight years of general experience.
+bachelor’s degree with three years specialized experience and six years of general experience or
+master’s degree with two years specialized experience and three years of general experience
+job description
+provide hands-on support for fx electronic trading systems with responsibility for application support, system monitoring, problem escalation, responding to system related user queries and deployment of releases.
+job requirements
+experience supporting front-to-back trading systems and trading desks.
+deploy and support complex in-house & 3rd party applications.
+proactively manage business critical real-time trading systems in order to identify issues and potential problem areas.
+interact with various internal teams, development, quality assurance, operations and external 3rd party vendors to troubleshoot and resolve problems.
+actively identify incidents and as necessary manage the incident resolution process to provide service recovery and manage client communications and expectations in respect to incident resolution.
+ensure compliance with departmental policies and knowledge of itil best practices (i.e. change management, it security standards, release management, incident management).
+work with all parties to provide services to agreed sla’s.
+work through annual disaster recovery testing and bcp planning.
+qualifications
+strong experience and a good working knowledge of real time trading systems
+excellent problem solving, planning and analytical skills
+extensive experience of managing client queries and problems
+strong communications skills with a demonstrable ability to interact and influence at all levels within the organization as well as with clients
+excellent documentation skills
+excellent knowledge of linux
+business knowledge of foreign exchange (fx) trading
+understanding of infrastructure/server components
+strong scripting skills. (preferably python, perl etc)
+experience of rdbms methodology and sql scripting
+understanding of ms sql server & oracle
+good working knowledge of application integration and testing
+good working knowledge of sql and relational database techniques
+good understanding of fix protocol
+understanding of networks with basic troubleshooting skills, exchange connectivity
+periodic on-call support and some shift work may be required
+role
+you will work closely with client-based it groups, internal client engagement teams and product specialists to provide seamless high quality support. you will act in an escalation capacity for high impact issue resolution.
+you will be responsible for managing front-line relationships with our clients. this includes dealing with client queries, identifying and resolving issues.
+you will have the ability to communicate effectively, build high-levels of trust with stakeholders including clients, support staff, client relationship and development teams.
+responsibilities
+troubleshoot and resolve high impact application errors on client systems.
+liaise with client it for software packaging, user rollouts, upgrades, troubleshooting and integration with backend processing systems
+understand hardware, software, compliance and monitoring requirements to maintain extremely high client satisfaction levels
+drive daily client product and technical support through email and phone
+ensure other client facing teams, both it and non-it are fully informed of incidents and events
+become an expert on dealogic cortex and legacy products within the origination group
+required experience and skills
+experience working with microsoft windows server and or microsoft azure.
+experience with microsoft sql server database or other relational database technologies.
+experience in scripting, preferably powershell or python
+experience with cloud providers, ideally microsoft azure
+proven experience working in a client-facing role
+ability to work under pressure and often to conflicting demands
+ability to prioritize and re-prioritize work due to changing business/client requirements.
+creative and analytical approach to problem solving
+excellent communication skills with experience of dealing with external stakeholders
+delivery focused
+robust – able to bounce back when challenged
+proactive approach to work
+team player
+bachelors degree in computer science, information systems, or related discipline
+desired experience and skills
+understanding of financial markets
+asp and .net programming experience
+t-sql scripting and performance tuning and sybase
+a project and methodical style and approach
+mcse, mcp, mcdba
+a new york team focused on equities trading is seeking an experienced production engineer who will own front-office trading issues and focus on continuously improving the automation level, scalability, and fault-tolerance of the production stack.
+the production engineering role requires working with infrastructure developed in python and c++ that supports the full life cycle of the trading operation: from acquiring data, to active research and optimization, through deployment and live trading. the production engineer will automate and improve the existing infrastructure, maintain correctness and consistency of production data sources, and ensure that trading proceeds smoothly across global markets; this may include other duties as assigned or needed. this front-office role requires a strong attention to detail, a conscientious attitude, and the ability to work collaboratively with members of the trading team and the overall firm.
+members of the team have diverse academic and engineering backgrounds, and would regard a successful, high-impact production engineer as a key partner of the trading team.
+required skills
+three to five years of production support experience at a trading firm or asset manager.
+excellent understanding of linux and python, as well as competence in c++.
+ability to learn and deeply understand the production trading system in order to quickly identify and solve complex operational problems in time-sensitive scenarios. this will at times require working outside of a "9 to 5" timeframe if issues arise outside of us market hours.
+able to work on several projects at once and successfully drive each one to completion.
+meticulous and exacting attention to detail, along with a passion for continuously improving, automating, and simplifying systems.
+reliable and predictable availability.
+strong communication and collaboration skills, as well as a positive attitude.
+our team is seeking to add a application support engineer/analyst for the xae itec team. this role is in itec/mkt/xae team focused on serving the global execution services desk.
+profile required
+day-to-day responsibilities:
+responsible for the fidessa application used by traders, sales and middle office on the trading floor.
+responsibility includes software releases, configuration, monitoring and support of all production system components and infrastructure.
+support, develop and maintain system scripts
+ensure system availability, performance, capacity, and monitoring through proper response to incidents, events and problems.
+troubleshoot technical or functional issues in a complex financial environment to provide timely resolution, with various applications and platforms that are global.
+partner with global development and application support teams in new york, montreal, paris, bucharest, bangalore and hong kong. work in follow-the-sun model
+position being on the main trading floor, extensive interaction is expected with traders, sales, developers and quants.
+gaining in-depth exposure to both the business and technology aspects of equity derivatives business.
+bring a passion to stay on top of devops trends, experiment with and learn new cd technologies.
+help or mentor other members of the team, preach and spread devops as religion in the firm.
+develop applications and scripts to automate manual operational tasks as well as build custom real-time monitoring tools and reports.
+profile
+qualifications:
+undergraduate or graduate degree in computer science or related concentration.
+experience needed:
+2+ years’ experience in financial services industry
+desired / plus:
+experience with monitoring systems such as itrs / geneos
+direct server side fidessa experience on an enterprise system.
+technical skills:
+comfortable working on unix / linux (sysadmin, shell scripting, etc.) and windows environments.
+experience working with relational databases, excellent sql skills.
+desired / plus:
+knowledge of fix and other order/rfq/trading protocols.
+oracle databases
+task schedulers (autosys)
+strong with in scripting language (shell,tcl, perl, python, etc.)
+understanding of the agile and continuous delivery.
+networking knowledge
+hands on development experience with (java, c#, c++)
+experience with one or more: source control management systems (git or subversion);
+competencies:
+energetic, self-directed and self-motivated, able to build and sustain long-term relationships with business and colleagues.
+ability to solve problems with a keen eye for details; a strong desire to learn and contribute solutions and ideas to the team.
+exceptional analytical skills, able to apply knowledge and experience to propose creative, value driven viable solutions.
+self-directed, independent and comfortable in a fast paced, ambiguous and matrix environments.
+can manage multiple tasks and use judgment to prioritize and escalate to achieve desired outcomes.
+strong verbal and written communication skills.
+desired / plus:
+knowledge on capital market and investment banking activities.
+knowledge of fidessa order management system
+business insight
+educational requirements:
+undergraduate or graduate degree in computer science or related concentration.
+the senior tech/trade support lead will be responsible for leading a team, while helping to provide hands on, quality support services to the various groups in a fast pace financial company. this is a hands-on role requiring the ability to handle various problems with expertise and exceptional judgment while working with end-users.
+the role will require the individual to interface directly with trading business units to ensure the rest of the support team is meeting the business needs. the role is also responsible for proactive communication with the business which requires the utmost professionalism.
+skills required
+minimum of five years of progressive hands on technical support experience in a financial institution required
+previous experience supporting traders
+must have previous experience as a team lead, helping to manage other technical support professionals (will only be 30% of this role / other 70% will be focused on providing hands on technical support)
+bachelor's degree strongly preferred
+ability to direct activities of peers and others not reporting directly to the person
+knowledge of active directory, exchange, citrix remote access and application delivery
+linux desktop environment (centos)
+comprehensive knowledge of windows based desktops and the key applications – outlook, ms office, etc.
+strong understanding of market data – bloomberg, client, etc. proven expertise in integrating with excel plug-ins, troubleshooting api broken links, effectively working with vendor technical support.
+broad understanding of mobile technology
+must have excellent written and verbal communications skills as well as strong customer service experience.
+process oriented individual
+must demonstrate an ability and interest in having a hands-on approach to customer service.
+availability for night and weekend shift work as well as light travel to branch offices
+experience in supporting servers and data centers a plus
+mcp/mcse/ccna or equivalent a plus
+principal responsibilities
+deliver high-quality support to all end-users in a courteous professional manner
+lead a team of other technical support professionals
+field incident phone calls and emails from end users
+leverage servicenow to manage incident and problem workflows
+troubleshoot basic network and telecommunications connectivity issues
+support of desktop technology and desktop applications in windows environments (linux desktop support experience a plus), including remote access tools
+knowledge and troubleshooting skills in the microsoft windows os, microsoft office suite, mobile devices, printers and other applications
+strong analytical and problem-solving skills are a must as well as the ability to work well independently
+understand and evaluate end-users needs and develop creative technical solutions to meet them
+support projects that evolve as a result of firm-wide technical initiatives
+strong communication skills.
+ensure end-users are informed of issue status through resolution; escalate to the appropriate technology teams when necessary
+job type: full-time
+pay: up to $200,000.00 per year
+benefits:
+401(k)
+401(k) matching
+dental insurance
+health insurance
+paid time off
+vision insurance
+supplemental pay:
+bonus pay
+experience:
+leading a team: 2 years (required)
+technical support: 5 years (required)
+financial services : 5 years (required)
+trade support: 1 year (required)
+work remotely:
+temporarily due to covid-19
+carlyle
+squarepoint is a global investment management firm that utilizes a diversified portfolio of systematic and
+quantitative strategies across financial markets that seeks to achieve high quality, uncorrelated returns for
+our clients. we have deep expertise in trading, technology and operations and attribute our success to
+rigorous scientific research. as a technology and data-driven firm, we design and build our own cutting-
+edge systems, from high performance trading platforms to large scale data analysis and compute farms.
+with main investment offices in new york, london and singapore, we emphasize true, global
+collaboration by aligning our investment, technology and operations teams functionally around the world.
+group: technology operations  
+position: trading infrastructure support
+job summary: 
+the trading infrastructure support engineer will be part of a highly talented team of support engineers
+responsible for ensuring high availability of squarepoint’s mission critical services such infrastructure as a
+service (iaas), build &amp; deploy, research and trading. the candidate will be responsible for providing
+l1/l2 support across all services globally distributed across apac, emea and amer regions.  
+main responsibilities: 
+provide monitoring and l1/l2 support across all services and quickly react to any outages to maintain a
+highly available environment
+quickly identify, analyze and correct alerts &amp; issues and/or escalate to minimize trade flow impact and
+preempt outages
+intensive interaction with trading community, external vendors, development and infrastructure teams
+oversee automated processes, scheduled jobs and regular reports
+manage users’ requests: track requests, review approvals, updates, resolution, closure, etc.
+identify inefficiencies such as repetitive activities, manual processes and suboptimum tools/workflows to
+drive continuous improvements via automation, collaboration with internal and external teams.
+candidate requirements 
+qualifications: 
+2+ years of support experience a must
+experience in linux/unix administration (rhel/centos/oel preferred)
+proficiency in python, bash scripting 
+good working knowledge of storage and different storage protocols (nfs  gpfs a plus)
+experience with infrastructure automation (chef, puppet or ansible)
+experience with kafka or like messaging buses
+experience with cicd tooling 
+experience with monitoring infrastructure (elk and prometheus preferred) 
+database administration experience (mysql or posgresql preferred)
+experience in container software administration (docker, podman, kubernetes, gke or helm preferred)
+working knowledge with tcp/ip, multicast, tcpdump, clocking (ptp, ntp)
+ability to navigate network equipment command line
+bachelor’s degree in computer science, engineering or related subject.
+preferred qualifications: 
+highly organized, detailed, control oriented, enjoys solving problems and brings in a &quot;take charge&quot; attitude
+strong verbal/written communication skills required to support daily interaction with internal
+teams, external vendors and service providers
+self-motivated individual that takes initiatives and has an ownership &amp; accountability mindset
+must show the ability to make quick decisions and establish priorities in a multi-tasking &amp; fast-paced
+environment
+knowledge of itil is an advantage.
+we are looking for trading technology production engineers to further strengthen our technical operations. the successful
+candidate will be working very closely with our trading, quantitative, business, and software engineering teams. if you are
+excited about trading environments and their relationship with and usage of cutting-edge technology, aspire to be an integral
+part of the largest market making and trading teams in the world, and work closely with quantitative researchers and traders,
+this position could be a fit for you. you will provide technical expertise to support and enhance core trading applications.
+our team works in a fast-paced and dynamic environment with turnaround times measured in hours. you will see the
+immediate results of your work. we all enjoy taking initiative and are self-starters with a demonstrable ability to analyze
+complex business/technical problems and make sound technical decisions.
+responsibilities
+manage the configuration of multiple production silos, covering multiple asset classes
+improve uptime, capacity, and performance of trading systems
+diagnose and resolve critical production issues, managing incident tracking, analysis and reporting
+work with development and qa teams in regression testing functionality and stress testing application servers
+build automation and processes that reduce the impact of mistakes and eliminate recurring incidents
+revise software designs to mitigate failures in other parts of the stack
+contribute to service quality by participating in product development from idea and inception
+manage critical and direct communication lines with traders, business managers, and development leads on all
+aspects of projects
+qualifications
+significant experience in unix/linux, networking, a high-level scripting or programing language such as perl,
+python or ruby, sybase, utilizing databases and sql manipulation
+an understanding of building and managing large-scale systems and application architectures
+proven experience in application support and administration
+exposure to ci/cd and sdlc
+solid communication and interpersonal skills
+preferred qualifications
+knowledge of trading systems and applications, including oms and fix engines
+experience with software analysis, leading to bug fixing, development, code enhancement
+experience with testing methodologies and test tools
+prior trade desk experience
+about citadel securities
+citadel securities is an award-winning global market maker that helps meet the liquidity needs of asset managers, banks,
+broker-dealers, hedge funds, government agencies, and public pension programs. we offer a broad array of fixed income
+and equity products, utilizing a unique set of capabilities and tools designed to drive down the cost of transactions. we strive
+to provide the most efficient execution and highest caliber of client services, making markets more fair and accessible for
+all.
+pgim fixed income – asd support engineer (contract)
+about pgim:
+pgim fixed income is a global asset manager offering active solutions across all fixed income markets.
+the company has offices in newark, new jersey, london, tokyo and singapore. as of june 30, 2020, the
+firm has $920 billion of assets under management including $388 billion in institutional assets, $179
+billion in retail assets, and $352 billion in proprietary assets. over 848 institutional asset owners have
+entrusted pgim fixed income with their assets.
+who we are:
+in pgim fixed income, our technology group is a dynamic, fast-paced environment, with exciting
+changes on the horizon under new senior leadership. we are looking for a well-rounded, senior
+application support analyst to liaise between our external vendors, end users and technology team to
+provide oversight and stability within our production environment. our ideal candidate will have proven
+experience in supporting complex investment management platforms and applications. this will include
+front-office investment systems, business support applications and complex back-office data
+management and automation platforms. the right candidate for this role will identify this challenge as a
+unique and valuable opportunity to help drive our global technology transformation, so if this sounds
+interesting, then pgim could be the place for you.
+what you will do:
+• provide application support for systems used by front and back office functions and client distribution
+teams across end-users, vendors, and technology teams, troubleshoot business issues, solving problems
+to diverse investment teams and product aligned business areas
+• ownership and accountability for the operation, monitoring and integrity of the technology platform,
+including complex nightly data import processes from multiple external vendors
+• triage and escalation support for members of the broader technology team including evenings and
+weekends on a rotation basis
+• ownership and participation in the incident and problem management processes, being accountable
+for resolution, root cause analysis and technology/business reporting as well as communication
+• providing oversight for the stability of the production environment within the change management
+process and ensuring policies are enforced
+• own minor development tasks/projects that help address existing bugs or introduce operational
+enhancements to the broader business community or our technology organization
+• navigate the broader technology organization, build relationships to manage the team’s agenda with
+our critical technology partners
+• interface with external vendors and their technical support/development organizations ensuring focus
+to resolution of issues and strategic enhancements
+• proactively identify improvements and address them through independent thinking within a
+consensus driven team
+• work in close partnership with the development teams to identify, escalate and help persistent
+patterns of issues
+• partner closely with testing and release control teams to move tested code into production
+what you will need:
+• 10+ years of experience in financial services technology, ideally with a focus in investment
+management. strong understanding of the sdlc process, with a focus on application support and
+release management
+• a hunger for continuous improvement, constantly looking for opportunities to improve upon the
+status quo and a desire to improve the support experience for our business and technology teams.
+• a tenacious sense of ownership and a desire to bring incidents to resolution quickly
+• a disciplined approach to problem management, working with development and service management
+teams to ensure technical incidents do not reoccur
+• demonstrated experience with service management functions including tight adherence to change,
+incident and problem management practices
+• partner closely with agile development teams to ensure best-practice checks are followed before new
+releases and systems are moved into a production supportable state
+• experience supporting applications hosted on the cloud (aws experience preferred)
+• technical fluency to use your software coding skills to automate manual processes in the production
+environment (python hands-on experience preferred)
+• experience with business intelligence tools (tableau preferred)
+• experience with the use of enterprise scheduling/workflow software (autosys preferred)
+• fluency in configuring/using modern monitoring tools desired (e.g. dynatrace, splunk etc.)
+• direct experience with the atlassian product suite, including jira and confluence.
+• experience using service management tools (servicenow preferred)
+• ability to make changes to existing code for minor bug fixes/enhancements (experience with java
+preferred)
+• experience with sybase and ms sql server. sql database query and reporting experience.
+• experience with the use and capabilities of etl software, with a strong preference for pentaho.
+what we would love to see:
+• very strong research, analytical, investigation, troubleshooting and evaluation skills.
+• experience working in a devops environment combined with a demonstrated experience in an agile
+development environment
+• experience with assisting development, testing and release teams with ci/cd pipelines.
+• knowledge of the trading lifecycle, portfolio management and trading systems throughout the full
+application stack
+• self-motivated to operate independently and make necessary decisions within the global team
+• ability to prioritize effectively within a dynamic global environment.
+• strong team player, results oriented with a flexible approach.
+• ability to present technology concisely to the business locally and globally with a good understanding
+of the receiving audience.
+• good interpersonal and communication skills, with excellent relationship building skills across multiple
+organizations.
+• comfortable operating in high pressure environments whilst managing multiple incidents across a
+global business.
+• ability to deal with and navigate difficult situations through strong teamwork and a focus on
+resolution.
+• itil certification
+citsec – client onboarding engineer (ny)
+job description
+we are looking for a client onboarding specialist who will be working with sales team and platform engineers to onboard new clients. role involves engaging with clients for certification against our trading system in addition to building client specific reports and accommodate customizations.
+responsibilities
+managing clients' technical integration to the platform
+liaising with clients and internal groups to handle new client integration requirements
+aiding clients with testing and certification
+installing and sanity testing new releases
+troubleshooting production issues and supporting existing systems
+working closely with many internal teams including front line service desk, development, infrastructure, and product management
+responding and liaising with vendors regarding fix specifications and configurations supported
+supporting fix systems and order routing infrastructure
+essential skills
+2+ years of related experience
+undergraduate degree in computer engineering preferred
+excellent understanding of fix protocol (ver 4.2/4.4)
+must have knowledge of unix or linux based o/s applications
+must have good understanding of tcp/ip concepts
+previous experience working on electronic trading environment in a fix support capacity
+exposure to any of the following asset classes: foreign exchange, equities, futures and options
+excellent communication skills, both written and verbal
+quick learner with strong attention to details and ability to think outside the box
+strong analytical and logical thinking capabilities
+highly motivated with strong interpersonal skills
+strong team player with ability to work in a fast-paced environment and under pressure
+scripting knowledge in one of the following languages unix/perl/python
+experience working with databases on writing basic sql queries- oracle/sql
+desired skills
+previous experience with any oms/ems product would be a plus.
+previous experience with share point, confluence for documentation and knowledge sharing
+ application production support role
+working closely with trading and sales desks the candidate will be responsible for the support of flow credit trading with specific focus on in-house applications and flows to external ecns to cover trade life-cycle, trade capture, risk management and pnl. first point of contact for all traders and front office personnel to resolve issues with trader tools and any business related information quality which may have fiscal impact if not resolved quickly.
+the individual should be able to support solutions efficiently and effectively, and demonstrate strong communications skills. the successful candidate must have the ability to multi-task and prioritise accordingly in a fast paced and demanding environment. they must be results oriented, high levels of service delivery and commitment is a must.
+• good understanding of bonds and credit derivatives and the trade life cycle (cds, index, index options).
+• strong understanding of electronic trading, stp (straight thru processing) and trade negotiation
+• provide first level/desk facing support for users of credit derivatives and cash (bond) applications.
+• work closely with users, answering their queries and raising development requests as they are presented.
+• escalation and timely resolution of production issues, using fundamental problem management disciplines
+• liaise between credit applications users and technology teams to address user queries and issues
+• perform analysis around new requirements or improvements to the current system based on analysis and feedback from key traders and trade assistants
+• develop and maintain documentation for reference as a knowledge base for training and incident mgt
+experience required:
+• experience with ficc credit trading applications and trade life cycle management.
+• strong business application support and problem diagnosis skills - strong desire/ability to jump in and investigate issues, resolve problems, and communicate status.
+• ability to deal with a high pressure trading environment. manage oneself in and environment of high frequency business and technology changes adhering to release and change management principles.
+• personable, effective communicator with ability to build and maintain partnerships. ability to deal directly with business users and development teams on a daily basis and act as primary liaison. proven ability to handle difficult situations, users and make critical decisions.
+• understanding of financial disciplines. business knowledge with bonds, credit derivatives and ficc preferred
+• experience working with f/o or m/o in a derivatives trading business. experience working in an investment bank preferred
+• basic tech skills. ms office, sql, excel, vba and unix. (python a plus)
+position is for a role in core technical support team for a number of large, distributed financial trading systems. candidates must have the willingness to do support, process automation, and some aspects of support tool development. some non-standard hours and weekend shifts are expected.
+responsibilities
+technical support for investment banking trading applications
+provide technical troubleshooting, configuration and deployment for both the applications and their underlying infrastructure
+partner with india l2 support teams to support users across the globe
+automate and streamline support processes
+strong problem diagnosis skills
+strong desire to jump in and investigate issues, resolve problems, and communicate status
+ability to work as part of a team - candidate will work closely with both the desk support, front office and development organization.
+monitor production environments and batch job runs.
+assess criticality of defects as it relates to application and business impact.
+document daily issues for handover call. document timelines in case of major outages.
+identify and document application issues, raise and respond to tickets, recreate the issues, resolve them or escalate issues developers if needed.
+work with developers to analyze and identify root cause of application defects for remediation.
+work closely with management and other team members to meet project objectives and maintain maximum uptime.
+drive standardization for new onboarding processes and controls.
+assist in project management, delivering of asd change projects, and enhancement for our controls
+technical skills/experience
+must have
+o experience with hands-on support of trading systems based on a service-oriented architecture (2 years minimum)
+o unix admin and/or scripting (2 years minimum)
+o strong sql - debugging stored procedures
+nice-to-have
+o experience with perl/python.
+o cross-platform os/infrastructure experience
+o understanding of networking protocols, tcp/ip
+o jms and sybase
+business knowledge
+experience in a large financial institution
+understand rates and credit derivatives, risk management and trading strategies - nice to have
+other
+must to be able to communicate crisply and clearly both from a verbal and written perspective
+must have strong interpersonal skills
+excellent work ethic - willing to be on-call nights/weekend
+must be able to work autonomously and independently solve problems when needed
+experience with hands-on support of trading systems based on a service-oriented architecture (2 years minimum)
+o unix admin and/or scripting (2 years minimum)
+* strong sql - debugging stored procedures
+* experience with perl/python.
+* o cross-platform os/infrastructure experience
+* o understanding of networking protocols, tcp/ip
+* o jms and sybase
+* business knowledge
+* experience in a large financial institution
+* understand rates and credit derivatives, risk management and trading strategies - nice to have
+* other
+* must to be able to communicate crisply and clearly both from a verbal and written perspective?
+work as a l2 application support associate in the ht maps amrs team. provide technical and business support to the business on multiple applications and also involves managing incidents, releases, and various projects.
+responsibilities include:
+support users on complex technical issues, problems related to supported applications, networks, servers and workstations.
+respond to requests and inquiries from users within the pre-determined timeframe of our service level agreement.
+identify solutions to work around open issues / problems that are under investigation or pending resolution.
+work directly with technology/development staff, and end users for any support related issue.
+responsible for incident management and conducting proper problem follow-up.
+improve documentation of support policies and procedures.
+understanding, in depth, the business processes supported by the system.
+ensuring continuity and quality by owning the resolution of issues across platforms. tracking progress and escalating as appropriate unless resolution reached.
+to ensure that applications and related services are documented and kept current.
+reviewing and ensuring complete and appropriate handover of documentation prior to operational acceptance of new or changed applications.
+proactively monitor and manage the production environment.
+automate and build adhoc scripts as needed to address critical business needs.
+maintaining a knowledge base of known defects and issues, process, techniques etc.
+performing production software releases and post release testing after application upgrades and/or releases.
+occasional weekend or after hours work is required to support critical business initiatives such as application deployments, infrastructure changes, industry-wide tests, or disaster recovery tests.
+required skills
+must be hands-on and involved with the day-to-day technical details.
+must have prior execution type trading support experience (program trading, cash/block trading, futures and options, or electronic trading).
+working knowledge of fix protocol.
+must have strong communications skills.
+strong knowledge of solaris unix and linux.
+strong analytical and troubleshooting skills.
+self-motivated with a positive attitude.
+experience writing perl or unix (solaris and linux) shells scripts.
+experience with ms sql, sybase.
+desired skills
+experience with rv, mq messaging, windows clustering and autosys.
+experience with itrs geneos.
+able to work in a fast pace environment
+the emden project is the merger of bnpp prime services and finance teams with deutsche banks prime services and finance teams. this project is call emden. ps&f has multiple businesses, prime brokerage, electronic trading, derivatives execution and clearing, financing, etc. bnpp is merging the db platforms into same so we can support a much larger client base. our clients are mostly multimillion and billion dollar hedge funds. revenue is generated by maintaining balances through custodial services, securities lending, dec, repos, etc.
+key requirements for the transition aps team   	(2 positions needed)  
+knowledge of network technologies and protocols – specifically tcp and multicast
+knowledge of electronic trading.
+monitoring tool exposure using linux and open source/writing scripts and packet inspection using tcpdump, wireshark.
+knowledge of python, c++ (nice to have to debug using gdb)
+knowledge of firewalls, tcp protocols a must
+knowledge of sre/dev ops practices a plus
+knowledge of configuration management tools such as puppet, ansible for automation desirable.
+knowledge of smart order routers
+knowledge of algorithmic trading activates
+knowledge of us equity industry
+knowledge of equity regulations
+knowledge of real-time market data from a technical (subscription/distribution)  and functional standpoint.
+candidate success factors:
+candidates will be measured on the following performance drivers which will dictate how individual impact is considered on the americas platform:
+results and impact
+leadership and collaboration
+client, customer and stakeholder focus
+compliance culture and conduct
+excellent communication skills
+demonstrates an in depth understanding and experience of architectural and network diagrams and data mapping flow documents
+must be able to work as part of a team, use own initiative and be self-motivated
+use of industry standard tools like service now/itsm, jira, share point are a plus
+front office application support -
+this role provides an opportunity to participate in a large scale project to improve batch and sla management across 4 application production services (aps) organizations. the role will involve working across multiple teams to identify and implement solutions to improve sla tracking, operating procedures and monitoring support tools. responsibilities will include evaluating existing processes and technologies and then working with a team of experts to formalize a plan for future state. the primary responsibilities will be to focus on identifying process improvements, establishing standard operating procedures (sop), documenting the new procedures and implementing them across the organization. this role will also require writing technical documentation to support the program.
+• strong communication and presentation skills both written and verbal
+• experience writing technical documentation
+• experience in service design, transition and overall service management in all aspects of the itil v3 (2011) service management lifecycle
+• develops group and departmental plans, including analysis of business, technical, process, production and/or organizational priorities
+• proven track record of delivering large scale projects
+• engineering mindset and passionate about simplifying and improving existing processes and technologies
+• effective collaboration skills with technical and business colleagues
+• strong technical skills and diverse background in application infrastructure technologies (databases, job schedulers, unix, windows)
+• python development as they will be working on quartz
+application support senior analyst - rates trading and e-commerce
+citi
+the apps support sr analyst is a seasoned professional role. applies in-depth disciplinary knowledge, contributing to the development of new techniques and the improvement of processes and work-flow for the area or function. integrates subject matter and industry expertise within a defined area. requires in-depth understanding of how areas collectively integrate within the sub-function as well as coordinate and contribute to the objectives of the function and overall business. evaluates moderately complex and variable issues with substantial potential impact, where development of an approach/taking of an action involves weighing various alternatives and balancing potentially conflicting situations using multiple sources of information. requires good analytical skills in order to filter, prioritize and validate potentially complex and dynamic material from multiple sources. strong communication and diplomacy skills are required. regularly assumes informal/formal leadership role within teams. involved in coaching and training of new recruits. significant impact in terms of project size, geography, etc. by influencing decisions through advice, counsel and/or facilitating services to others in area of specialization. work and performance of all teams in the area are directly affected by the performance of the individual.
+the team is largely client facing and has a significant amount of interaction with the rates trading desks and e-commerce.
+you will have the opportunity to further develop knowledge of financial markets – including the marketview trading platforms, as well as in-house developed processes and applications. these provide electronic trading functionality for the fixed income front office business groups for pricing analytics, offering generation and execution.
+candidate will become a senior member of the team, responsible for ensuring a high level of service to our clients and helping to manage bau workloads. they will also have the opportunity to drive / manage projects implementing and maintaining automated tools and monitoring solutions used by the support team.
+responsibilities:
+working as a senior member within the team responsible for the delivery and support of it services to the following capital markets products line, providing 1st and 2nd line trade floor support.
+trading products to include (but not an exhaustive list) :
+government bond / us treasuries
+interest rate swaps
+inflation linked securities
+specific systems within rates e-trading areas that that the team is responsible for are:- (non-exhaustive list)
+ion / marketview
+citi velocity
+itrs (monitoring software for platform)
+providing functional and technical help around the relevant systems to users by (not exhaustive)
+ensure correct pricing of instruments
+dealing with risk & pnl issues reported by users
+dealing with trade execution & processing / booking
+work within the 24x7 rota, this is on an “on-call” basis.
+manage customer relations when dealing directly with both internal and external users of the systems.
+liaise with users and developers and other technical support services (i.e. unix sa’s, market data teams)
+diagnosis and resolution of users issues and escalation of problems using the problem management tools
+other key responsibilities (not exhaustive):
+assist in development / scripting / maintenance of tools that can be used by team both to automate manual tasks and assist in monitoring of key business / application analytics
+understanding and documenting business requirements
+proactive monitoring of the e-trading platform with on-going maintenance of monitoring
+interaction with business support groups (e.g. e-commerce / middle office / quant analysts)
+qualifications:
+5-8 years experience in an application support role.
+experience installing, configuring or supporting business applications.
+experience with some programming languages and willingness/ability to learn.
+advanced execution capabilities and ability to adjust quickly to changes and re-prioritization
+effective written and verbal communications including ability to explain technical issues in simple terms that non-it staff can understand.
+demonstrated analytical skills
+issue tracking and reporting using tools
+knowledge/ experience of problem management tools.
+good all-round technical skills
+effectively share information with other support team members and with other technology teams
+ability to plan and organize workload
+consistently demonstrates clear and concise written and verbal communication skills
+ability to communicate appropriately to relevant stakeholde
+education:
+bachelor’s/university degree or equivalent experience
+application/production support – leading hedge fund in nyc
+must - strong sql skills, stored procs
+- great comm skills to work w/ business
+could come from a tech desktop role previously..they would have good troubleshooting skills.
+will be interacting with compliance business team
+need stable backgrounds
+production support engineer job description
+the production support team is responsible for front line support for all applications and infrastructure for
+the corporate technology team. the production support team will be working very closely with
+development to ensure that the environment is stable, resilient, and new features and functionality is
+delivered in a timely fashion.
+we are looking for a strong candidate to join our team focused on, but not limited to, supporting our
+compliance application and reporting. the successful candidate will help own and drive key initiatives in
+this space and be responsible for all production issues.
+principal responsibilities
+• be the first point of contact for production issues, support requests and alerts
+• work directly with other it and business teams to resolve issues in a timely manner
+• setup, manage and support data file downloads and batch processing
+• proactively monitor application and infrastructure alerts and be able to react quickly
+• ensure issues and outages are properly documented
+• communicate to our key stakeholders on production impacting issues, project statuses, etc.
+qualifications/skills required
+• 5+ years’ experience in application support, preferably in financial services
+• experience in managing large scale deployments/environments
+• technical skills
+o strong scripting skills (python, powershell, perl, etc.)
+o previous experience supporting enterprise vault and nasdaq smarts a plus
+o excellent sql skills and knowledge of various database systems
+? experience ssis/ssrs a plus
+? ability to troubleshoot complex stored procedures and datasets
+o ability to support both windows and unix/linux environments
+o extensive understanding of enterprise monitoring solutions
+o experience with various continuous integration, development and collaboration tools (jira, confluence,
+teamcity, jenkins, octopus, etc.)
+• soft skills
+o strong verbal and written communication skills
+? able to communicate complex problems
+? understands how to tailor communication based on the audience
+o highly analytical with excellent problem solving ability
+o self-starter with ability to quickly pick up new concepts and technologies
+o strong organization and project management skills
+? able to multitask and prioritize
+ application support
+role description:
+·         provide application support to the credit and primary desks in the americas region.
+·         will be tasked with being the main contact to support the main bond issuance applications used by the primary trading desk, issuemaster and issuenet.
+·         will be tasked with training the other members of the credit aps support team on the application also, leveraging the existing support team based out of london.
+candidate profile:
+·         it technical support understanding functional aspects of credit and primary trading.
+·         experience in fi application support, with business knowledge of credit, primary and/or rates.
+·         excellent communication skills.
+knowledge/skills/experience required:
+·         experience working with ion marketview, sql and unix desirable.
+day-to-day responsibilities as support analyst:
+·         the role is to provide 1st and 2nd line technical support to the fixed income credit trading desk in nyk and latam region. 
+·         the role will require the management of all aspects of the global credit systems for fixed income it, working closely with all the support and development teams across the regions to continue to build a market leading support organisation for fi it.
+·         the team is responsible for monitoring the system availability, proactively preventing system problems, and responding to system incidents when they occur.  they are also responsible for problem analysis, managing system change and ensuring minimal impact to the end users.
+·         ensure root cause analysis is undertaken for all incidents.
+·         communicating the status of the system.  providing etas for solutions when necessary.
+·         improving the monitoring and support systems by doing scripts to automate the support and writing specification for monitoring and support team that will be transferred to the development.
+·         regularly review and improve the checks done by the team (morning, checks, evening checks …)
+·         coordinate the package build of third part application, and test it.
+·         review the releases which are planned and perform the post release checks.
+·         participate to the uat phase of the major delivery.
+·         write and maintain documentation.
+·         work in partnership with the montreal team and train them.
+·         work closely with the trading desk to understand requirements and either implement tactical solution or raise to business mgmt. + dev where appropriate.
