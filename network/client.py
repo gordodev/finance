@@ -1,6 +1,18 @@
+#!/usr/bin/env python3
+
 #----- A simple TCP client program in Python using send() function -----
 
 import socket
+import logging
+import datetime
+
+date = datetime.datetime.now()
+print (date)
+print (date.strftime("%Y-%m-%d %H:%M:%S"))
+logging.basicConfig(
+        filename='./logs/client.log',
+        format='%(asctime)s %(levelname)-8s %(message)s',
+        level=logging.INFO)
 
  
 

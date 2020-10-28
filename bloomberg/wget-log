@@ -1,11 +1,0 @@
---2020-10-27 01:23:14--  https://www.google.com/finance/quote/IBM:NYSE?sa=X
-Resolving www.google.com (www.google.com)... 172.217.12.132, 2607:f8b0:4006:808::2004
-Connecting to www.google.com (www.google.com)|172.217.12.132|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [text/html]
-Saving to: ‘IBM:NYSE?sa=X’
-
-IBM:NYSE?sa=X           [<=>                 ]       0  --.-KB/s               IBM:NYSE?sa=X           [ <=>                ] 693.33K  3.25MB/s               IBM:NYSE?sa=X           [  <=>               ] 882.15K  3.70MB/s    in 0.2s    
-
-2020-10-27 01:23:15 (3.70 MB/s) - ‘IBM:NYSE?sa=X’ saved [903319]
-
