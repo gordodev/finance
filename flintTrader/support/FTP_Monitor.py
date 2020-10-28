@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-#------------------------------ Flint Trader -----------------------------------
-#Summary: Flint is a FIX compliant, Order Management System (OMS) for trading various asset classes electronically. Flint is the trading client for order entry and management. The Flint Trader Platform (FTP), is the infrastructure that the trading client (Flint), is able to function.
+#------------------------------ Flint Trader Support Module -----------------------------------
+#Summary: Make sure all applications are running as expected.
 
 
 import logging
 import datetime
+import os
 
 date = datetime.datetime.now()
 print (date.strftime("%Y-%m-%d %H:%M:%S"))
@@ -15,59 +16,79 @@ logging.basicConfig(
         format='%(asctime)s %(levelname)-8s %(message)s',   
         level=logging.INFO)
 
-def new_order():
+def check_status():
     '''
-    What am I doing?
+    Make sure all applications are up and running
 
             Parameters:
-                    a (parameter): what is this?
-                    b (parameter): what is this?
+                    a (feed): Check feed status
+                    b (flint): Check Flint Trader status
 
             Returns:
-                    what will you return?
+                    STATUS:
+                        OK: Some applications down but all critical apps are up
+                        GOOD: All applications are up
+                        FAIL: At least one critical application is down
     '''
     pass
 
-def get_symbol(symbol):
-    '''
-    What am I doing?
+print ('\nWelcome to Flint Trader, SUPPORT MODULE!\n')
 
-            Parameters:
-                    a (parameter): what is this?
-                    b (parameter): what is this?
 
-            Returns:
-                    what will you return?
-    '''
-    pass
 
-def get_price(symbol):
-    '''
-    What am I doing?
+#Menus driven system status checker and alerter
 
-            Parameters:
-                    a (parameter): what is this?
-                    b (parameter): what is this?
+'''
+Development phases:
 
-            Returns:
-                    what will you return?
-    '''
-    pass
+Phase 1: Basic menu system
+Phase 2: Operational menu system (choice confirm only)
 
-def get_ftpstatus():
-    '''
-    What am I doing?
+***LINUX Dev phase***
+Phase 4: Use OS module to check memory
+Phase 5: Use OS module to check CPU
+Phase 6: Use OS module to check disk space
 
-            Parameters:
-                    a (parameter): what is this?
-                    b (parameter): what is this?
+*Phase 7: Add alert module
+Phase 8:  Add CPU alert(default trigger)
+Phase 9:  Add memory alert(default trigger)
+Phase 10: Add disk alert (default trigger)
+Phase 11: Add alert threshold param setting for all triggers
+Phase 12: Add interval setting via XML or menu
+'''
 
-            Returns:
-                    what will you return?
-    '''
-    pass
+#Present menu
 
-print ('\nWelcome to Flint Trader!\n')
+print("Choose an option below: ")
+print("")
+print("1) Check memory")
+
+print("2) Check CPU")
+
+print("3) Check disk space")
+
+#Choice logic
+
+choice=input("Type number above: ")
+
+if choice == 1:
+    print("You have none, forgetful Joe")
+elif choice ==
+
+#Choice 1
+
+
+
+#Choice 2
+
+
+___________________________________________________________________________
+
+
+
+for line in fileinput.input(['myfile.txt'], inplace=True):
+    print(line.replace('old', 'new'), end='')
+
 
 logging.warning('The program does nothing right now')
 logging.info('Flint Trader started')
