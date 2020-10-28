@@ -7,6 +7,8 @@
 import logging
 import datetime
 import os
+import subprocess      #so we can process the values returned from the shell
+
 
 date = datetime.datetime.now()
 print (date.strftime("%Y-%m-%d %H:%M:%S"))
@@ -44,17 +46,18 @@ Development phases:
 Phase 1: Basic menu system
 Phase 2: Operational menu system (choice confirm only)
 
-***LINUX Dev phase***
+  ***    LINUX Dev phase ***
 Phase 4: Use OS module to check memory
 Phase 5: Use OS module to check CPU
 Phase 6: Use OS module to check disk space
 
-*Phase 7: Add alert module
-Phase 8:  Add CPU alert(default trigger)
-Phase 9:  Add memory alert(default trigger)
-Phase 10: Add disk alert (default trigger)
-Phase 11: Add alert threshold param setting for all triggers
-Phase 12: Add interval setting via XML or menu
+  ***    Add alert module
+Phase 7: Add CPU alert(default trigger@90%)
+Phase 8: Add memory alert(default trigger@2GB FREE)
+Phase 9: Add disk alert (default trigger@75% usage)
+Phase 10: Add alert threshold param setting for all triggers
+Phase 11: Add interval setting via XML or menu
+
 '''
 
 #Present menu
@@ -70,16 +73,40 @@ print("3) Check disk space")
 choice=input("\nType number above: \n")
 
 if choice == "1":
-    print ("\nYou have none, forgetful Joe")
-elif choice == "":
-    print ("\nPlease enter valid value!")
-else:
-    print ("\n*******\n\n!! Invalid or inactive value!! \n")
+    # Define RAM variables
+    TotalRAM=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | cut -d \' \' -f 2'], shell= True)
+    RAMUsed=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | cut -d \' \' -f 3'], shell= True)
+    RAMFree=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | awk \'{print $4}\''], shell= True)
+    TESTVALUE=subprocess.check_output(["date"])
+    Threshold_RAM_Usage=2048000
+
+    print ("\n\nChecking RAM Usage...")
+    print (" Your total RAM Capacity is: ", TotalRAM.decode('ascii'))
+    print (" Now, your system is using: ", RAMUsed.decode('ascii'))
+    print (" And, you have free RAM Capacity of: ", RAMFree.decode('ascii'))
+    #print ("Here is test value: ", TESTVALUE.decode('ascii'))
+
+    # Check if RAM is overused
+    RAMfreeValue=int(subprocess.check_output(['free   | grep ^Mem | tr -s \' \' | cut -d \' \' -f 4'], shell= True))
+    
+    if RAMfreeValue <= Threshold_RAM_Usage:  # I also converted the string to integer using int ()   
+                print("Alert: Now, you only have the following amount of free RAM: ",  RAMFree)
+
 #Choice 2
 
 
 
 #Choice 3
+
+
+
+elif choice == "":
+    print ("\nPlease enter valid value!")
+else:
+    print ("\n*******\n\n!! Invalid or inactive value!! \n")
+
+
+
 
 
 #___________________________________________________________________________
