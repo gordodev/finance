@@ -12,7 +12,7 @@ date = datetime.datetime.now()
 print (date.strftime("%Y-%m-%d %H:%M:%S"))
 
 logging.basicConfig(
-        filename='./logs/flint.log',
+        filename='./logs/FTP_Monitor.log',
         format='%(asctime)s %(levelname)-8s %(message)s',   
         level=logging.INFO)
 
@@ -60,34 +60,30 @@ Phase 12: Add interval setting via XML or menu
 #Present menu
 
 print("Choose an option below: ")
-print("")
+
 print("1) Check memory")
-
 print("2) Check CPU")
-
 print("3) Check disk space")
 
 #Choice logic
 
-choice=input("Type number above: ")
+choice=input("\nType number above: \n")
 
-if choice == 1:
-    print("You have none, forgetful Joe")
-elif choice ==
-
-#Choice 1
-
-
-
+if choice == "1":
+    print ("\nYou have none, forgetful Joe")
+elif choice == "":
+    print ("\nPlease enter valid value!")
+else:
+    print ("\n*******\n\n!! Invalid or inactive value!! \n")
 #Choice 2
 
 
-___________________________________________________________________________
+
+#Choice 3
 
 
+#___________________________________________________________________________
 
-for line in fileinput.input(['myfile.txt'], inplace=True):
-    print(line.replace('old', 'new'), end='')
 
 
 logging.warning('The program does nothing right now')
