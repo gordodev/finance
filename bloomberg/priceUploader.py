@@ -1,21 +1,34 @@
+#!/usr/bin/env python3
 
-#Create flat file
+#Create flat file for Bloomberg system
+
+import logging
+import datetime
+
+date = datetime.datetime.now()
+print (date.strftime("%Y-%m-%d %H:%M:%S"))
+
+logging.basicConfig(
+        filename='./logs/flint.log',
+        format='%(asctime)s %(levelname)-8s %(message)s',
+        level=logging.INFO)
+
 
 f = open ("flat.dat", "a")
 
+#Get user data
 while True:
     SecurityIDType = input('SecurityIDType ')
-    if SecurityIDType == '':
+    if SecurityIDType == '':                 #If user does not enter value, break
         break
     SecurityID = input('SecurityID ')
     Price = input('Price ')
     Date = input('Date ')
-
+    
+    #Join all user data, then type string and finally write to file
     mydata = (SecurityIDType+SecurityID.center(12)[:12]+Price.center(10)[:10]+Date.center(8)[:8]+"\n")
     mydata = str(mydata)
     f.write (mydata)
-    #Insert into file
-    #Break if empty, continue if not
 
 f.close()
 
@@ -26,6 +39,7 @@ print (f.read())
 f.close()
 
 '''
+SCHEMA:
 
 2,12,10,8							   
 							   
@@ -37,5 +51,3 @@ Byte 25-32: Date (Required, YYYYMMDD)
 
 
 '''
-
-
