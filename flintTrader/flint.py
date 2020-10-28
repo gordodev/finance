@@ -72,4 +72,21 @@ print ('\nWelcome to Flint Trader!\n')
 logging.warning('The program does nothing right now')
 logging.info('Flint Trader started')
 
+
+#Generate FIX orders periodically
+
+#Phase 1: Output single order to FIX log
+
+#Phase 2: Generate 1 order ever 10 seconds
+
+#Phase 3: Randomize stock from list
+
+
+
+#Phase 4: Randomize Px from list
+
+
+#Phase 5: Randomize MARKETABLE Px
+
+
 #Flint Trading Platform 10/28/20
