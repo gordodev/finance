@@ -8,7 +8,7 @@ import logging
 import datetime
 import os
 import subprocess      #so we can process the values returned from the shell
-
+import time
 
 date = datetime.datetime.now()
 print (date.strftime("%Y-%m-%d %H:%M:%S"))
@@ -33,8 +33,52 @@ def check_status():
                         FAIL: At least one critical application is down
     '''
     pass
+    logging.info('def check_status')
+    print ('\n\nChecking status\n')
+
+def check_memory():
+    # Define RAM variables
+    logging.info('Function called: check_memory')
+    TotalRAM=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | cut -d \' \' -f 2'], shell= True)
+    RAMUsed=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | cut -d \' \' -f 3'], shell= True)
+    RAMFree=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | awk \'{print $4}\''], shell= True)
+    TESTVALUE=subprocess.check_output(["date"])
+    Threshold_RAM_Usage=2048000
+
+    print ("\n\nChecking RAM Usage...")
+    print (" Your total RAM Capacity is: ", TotalRAM.decode('ascii'))
+    print (" Now, your system is using: ", RAMUsed.decode('ascii'))
+    print (" And, you have free RAM Capacity of: ", RAMFree.decode('ascii'))
+    #print ("Here is test value: ", TESTVALUE.decode('ascii'))
+
+    # Check if RAM is overused
+    RAMfreeValue=int(subprocess.check_output(['free   | grep ^Mem | tr -s \' \' | cut -d \' \' -f 4'], shell= True))
+
+    if RAMfreeValue <= Threshold_RAM_Usage:  # I also converted the string to integer using int ()
+                print("Alert: Now, you only have the following amount of free RAM: ",  RAMFree)
+
+def check_cpu():
+    # Define CPU variables
+    logging.info('Function called: check_cpu')
+    print ('\n\nChecking CPU')
+
+def check_space():
+    # Define DISK variables
+    logging.info('Function called: check_space')
+    print ('\n\nChecking disk space')
+
+def shutdown():
+    #Shutdown application (do any clean up required)
+    logging.info('Function called: shutdown')
+    print ('\n\n\nShutting down Flint Trader Support Module\n')
+
+    #Clear temp files
+    #Close open files
+
+#--------------------------------------------------------------------------MAIN
 
 print ('\nWelcome to Flint Trader, SUPPORT MODULE!\n')
+logging.info('Flint Trader started')
 
 
 
@@ -56,64 +100,46 @@ Phase 7: Add CPU alert(default trigger@90%)
 Phase 8: Add memory alert(default trigger@2GB FREE)
 Phase 9: Add disk alert (default trigger@75% usage)
 Phase 10: Add alert threshold param setting for all triggers
-Phase 11: Add interval setting via XML or menu
+Phase 11: Add interval setting via CSV or menu(Create csv config file)
 
 '''
+while True:
 
-#Present menu
+    #Present menu
 
-print("Choose an option below: ")
+    print("Choose an option below: ")
 
-print("1) Check memory")
-print("2) Check CPU")
-print("3) Check disk space")
+    print("1) Check memory")
+    print("2) Check CPU")
+    print("3) Check disk space")
 
-#Choice logic
+    #Choice logic
 
-choice=input("\nType number above: \n")
+    choice=input("\nType number above: \n")
 
-if choice == "1":
-    # Define RAM variables
-    TotalRAM=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | cut -d \' \' -f 2'], shell= True)
-    RAMUsed=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | cut -d \' \' -f 3'], shell= True)
-    RAMFree=subprocess.check_output(['free -h  | grep ^Mem | tr -s \' \' | awk \'{print $4}\''], shell= True)
-    TESTVALUE=subprocess.check_output(["date"])
-    Threshold_RAM_Usage=2048000
+    if choice == "1":
+        check_memory()
 
-    print ("\n\nChecking RAM Usage...")
-    print (" Your total RAM Capacity is: ", TotalRAM.decode('ascii'))
-    print (" Now, your system is using: ", RAMUsed.decode('ascii'))
-    print (" And, you have free RAM Capacity of: ", RAMFree.decode('ascii'))
-    #print ("Here is test value: ", TESTVALUE.decode('ascii'))
+    elif choice == "2":
+        check_cpu()
 
-    # Check if RAM is overused
-    RAMfreeValue=int(subprocess.check_output(['free   | grep ^Mem | tr -s \' \' | cut -d \' \' -f 4'], shell= True))
-    
-    if RAMfreeValue <= Threshold_RAM_Usage:  # I also converted the string to integer using int ()   
-                print("Alert: Now, you only have the following amount of free RAM: ",  RAMFree)
+    elif choice == "3":
+        check_space()
 
-#Choice 2
+    elif choice == "":
+        print ("\nPlease enter valid value!")
 
-
-
-#Choice 3
-
-
-
-elif choice == "":
-    print ("\nPlease enter valid value!")
-else:
-    print ("\n*******\n\n!! Invalid or inactive value!! \n")
-
-
-
+    else:
+        print ("\n*******\n\n!! Invalid or inactive value!! \n")
+        logging.warning('User entered unknown value. Shutting down.')
+        time.sleep(2)
+        break
 
 
 #___________________________________________________________________________
 
 
-
-logging.warning('The program does nothing right now')
-logging.info('Flint Trader started')
+logging.info('Shutting down Flint Trader')
+shutdown()
 
 #Flint Trading Platform 10/28/20
