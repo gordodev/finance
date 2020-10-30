@@ -105,8 +105,10 @@ def start_db_order_loop():
         cursor = connection.cursor()
         command = """INSERT INTO "main"."orders" ("OrderID", "ClOrderID", "SenderID", "SenderSubID", "TargetID", "TargetSubID", "Side", "Symbol", "Quantity", "OrderType", "Price", "State", "orders_key") VALUES ('100', '10001', 'carl', 'king', 'NYSE', 'EQD', 'SELL', 'AAPL', '100', 'MKT', '0', 'NEW', '1')"""
 
-        cursor.execute(command)
+        cursor.execute(command) #Execute sql command/query
+        logging.info('DB insert complete')
         connection.commit()
+        logging.info('commit DB insert')
         
 
         print ("\n\nsleeping\n")
