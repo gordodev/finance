@@ -11,7 +11,7 @@ date = datetime.datetime.now()
 print (date.strftime("%Y-%m-%d %H:%M:%S"))
 
 logging.basicConfig(
-        filename='./logs/flint.log',
+        filename='/home/csws/dev/github/finance/flintTrader/logs/flint.log',
         format='%(asctime)s %(levelname)-8s %(message)s',   
         level=logging.INFO)
 
@@ -67,11 +67,23 @@ def get_ftpstatus():
     '''
     pass
 
+def insert_order():
+    '''
+    Insert random order into db
+
+            Parameters:
+                    a (symbol): Symbol you want to trade
+
+    '''
+    pass
+
+
 print ('\nWelcome to Flint Trader!\n')
 
 logging.warning('The program does nothing right now')
 logging.info('Flint Trader started')
 
+#          -----------    TASK LIST    -----------------
 
 #Generate FIX orders periodically
 
@@ -81,12 +93,8 @@ logging.info('Flint Trader started')
 
 #Phase 3: Randomize stock from list
 
-
-
 #Phase 4: Randomize Px from list
 
-
 #Phase 5: Randomize MARKETABLE Px
-
 
 #Flint Trading Platform 10/28/20
