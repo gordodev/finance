@@ -7,6 +7,7 @@
 import logging
 import datetime
 import time
+import sqlite3
 
 date = datetime.datetime.now()
 print (date.strftime("%Y-%m-%d %H:%M:%S"))
@@ -15,6 +16,10 @@ logging.basicConfig(
         filename='/home/csws/dev/github/finance/flintTrader/logs/flint.log',
         format='%(asctime)s %(levelname)-8s %(message)s',   
         level=logging.INFO)
+
+connection = sqlite3.connect('/home/csws/dev/github/finance/flintTrader/db/FTP_Database.db')
+
+
 
 #   ++++++++++++++++++++++++++++++++++++++++++  FUNCTIONS
 
@@ -95,7 +100,17 @@ def start_db_order_loop():
     while True:
         logging.info('Inserting order in DB')
         print ('Inserting order in DB\n')
-        time.sleep(5)
+       
+
+        cursor = connection.cursor()
+        command = """INSERT INTO "main"."orders" ("OrderID", "ClOrderID", "SenderID", "SenderSubID", "TargetID", "TargetSubID", "Side", "Symbol", "Quantity", "OrderType", "Price", "State", "orders_key") VALUES ('100', '10001', 'carl', 'king', 'NYSE', 'EQD', 'SELL', 'AAPL', '100', 'MKT', '0', 'NEW', '1')"""
+
+        cursor.execute(command)
+        connection.commit()
+        
+
+        print ("\n\nsleeping\n")
+        time.sleep(.2)
 
 
 #  --------------------------------------------  END FUNCTIONS
@@ -115,25 +130,29 @@ while True:
     print ('(g) get price')
     print ('(x) get')
     print ('(e) exit')
-    print ('(x) start insert order into DB loop')
+    print ('(d) start insert order into DB loop')
 
     choice = input('\n\nPress letter above, to select choice & then press enter.\n\n')
 
     if choice == 'n':
-        start_db_order_loop()
+        new_order()
 
     elif choice == 'g':
         break
 
-    elif choice == 'x':
+    elif choice == 'X':
         break
 
-    elif choice == 'e':
+    elif choice == 'd':
+        start_db_order_loop()
         break
 
     elif choice == 'x':
         print ('exiting menu')
-        info.logging('User selected x, for exit menu')
+        logging.info('User selected x, for exit menu')
+        
+        logging.info('Closing db connection')
+        connection.close()
         break
 
 
