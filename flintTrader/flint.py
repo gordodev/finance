@@ -6,6 +6,7 @@
 
 import logging
 import datetime
+import time
 
 date = datetime.datetime.now()
 print (date.strftime("%Y-%m-%d %H:%M:%S"))
@@ -14,6 +15,8 @@ logging.basicConfig(
         filename='/home/csws/dev/github/finance/flintTrader/logs/flint.log',
         format='%(asctime)s %(levelname)-8s %(message)s',   
         level=logging.INFO)
+
+#   ++++++++++++++++++++++++++++++++++++++++++  FUNCTIONS
 
 def new_order():
     '''
@@ -27,6 +30,7 @@ def new_order():
                     what will you return?
     '''
     pass
+    logging.info('Function called: new_order')   
 
 def get_symbol(symbol):
     '''
@@ -40,6 +44,7 @@ def get_symbol(symbol):
                     what will you return?
     '''
     pass
+    logging.info('Function called: get_symbol')
 
 def get_price(symbol):
     '''
@@ -53,19 +58,20 @@ def get_price(symbol):
                     what will you return?
     '''
     pass
+    logging.info('Function called: get_price')
 
-def get_ftpstatus():
+def get_platform_status():
     '''
-    What am I doing?
+    Check system status for entire trading platform
 
-            Parameters:
-                    a (parameter): what is this?
-                    b (parameter): what is this?
-
-            Returns:
-                    what will you return?
     '''
-    pass
+    logging.info('Function called: get_platform_status')
+    
+    print ('\nChecking system status\n\n')
+    time.sleep(2)
+
+    print ('System status OK\nReady for trading!\n\n')
+
 
 def insert_order():
     '''
@@ -76,12 +82,60 @@ def insert_order():
 
     '''
     pass
+    logging.info('Function called: insert_order')
+
+def start_db_order_loop():
+    '''
+    inserting random orders into the database
+
+    '''
+    logging.info('Function called: start_db_order_loop')
+    print ('\n\nInserting random orders into the DB\n\n')
+
+    while True:
+        logging.info('Inserting order in DB')
+        print ('Inserting order in DB\n')
+        time.sleep(5)
 
 
-print ('\nWelcome to Flint Trader!\n')
+#  --------------------------------------------  END FUNCTIONS
+
+
+print ('\nWelcome to Flint Trader!\n\n')
 
 logging.warning('The program does nothing right now')
+get_platform_status(); logging.info('Check platform status')
 logging.info('Flint Trader started')
+
+
+while True:
+    #Display menu
+    print ('###############   MENU  ###########\n')
+    print ('(n) new order')
+    print ('(g) get price')
+    print ('(x) get')
+    print ('(e) exit')
+    print ('(x) start insert order into DB loop')
+
+    choice = input('\n\nPress letter above, to select choice & then press enter.\n\n')
+
+    if choice == 'n':
+        start_db_order_loop()
+
+    elif choice == 'g':
+        break
+
+    elif choice == 'x':
+        break
+
+    elif choice == 'e':
+        break
+
+    elif choice == 'x':
+        print ('exiting menu')
+        info.logging('User selected x, for exit menu')
+        break
+
 
 #          -----------    TASK LIST    -----------------
 
