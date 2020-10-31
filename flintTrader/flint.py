@@ -20,7 +20,7 @@ logging.basicConfig(
         level=logging.INFO)
 
 connection = sqlite3.connect('/home/csws/dev/github/finance/flintTrader/db/FTP_Database.db')
-tickers  = '/home/csws/dev/github/finance/flintTrader/data/nasdaqlisted.txt'
+tickers  = '/home/csws/dev/github/finance/flintTrader/data/nasdaqlisted.txt' #QA is this bug? Conflict with list?
 
 
 #   ++++++++++++++++++++++++++++++++++++++++++  FUNCTIONS
@@ -32,13 +32,11 @@ def load_tickers():
     '''
     logging.info('Function called: load_tickers')
     logging.info('Loading tickers')
+    global tickers
 
     with open ('/home/csws/dev/github/finance/flintTrader/data/nasdaqlisted.txt', mode='r') as infile:
         reader = csv.reader(infile,delimiter='|')
         tickers = [rows[0] for rows in reader]
-        #print(random.choice(tickers).decode("utf-8"))
-        #(random.choice(tickers).decode("utf-8"))
-        #print(tickers)
 
 
 def new_order():
@@ -114,41 +112,80 @@ def start_db_order_loop():
     '''
     logging.info('Function called: start_db_order_loop')
     logging.info('load tickers')
-    load_tickers()
+    OrderID=1000; ClientOrderIDNum=11000; ClOrderID=('CARL_'+str(ClientOrderIDNum))
     print ('\n\nInserting random orders into the DB\n\n')
 
     while True:
         logging.info('Inserting order in DB')
         #ticker=(random.choice(tickers).decode("utf-8"))
         print ('Inserting order in DB\n')
-       
 
+        get_random_values()
         cursor = connection.cursor()
-        commandX = """INSERT INTO "main"."orders" ("OrderID", "ClOrderID", "SenderID", "SenderSubID", "TargetID", "TargetSubID", "Side", "Symbol", "Quantity", "OrderType", "Price", "State", "orders_key") VALUES ('100', '10001', 'carl', 'king', 'NYSE', 'EQD', 'SELL', 'AAPL', '100', 'MKT', '0', 'NEW', '1')"""
+        commandX = """INSERT INTO "main"."orders" ("OrderID", "ClOrderID", "SenderID", "SenderSubID", "TargetID", "TargetSubID", "Side", "Symbol", "Quantity", "OrderType", "Price", "State", "orders_key") VALUES ('222', '10000000', 'carl', 'king', 'NYSE', 'EQD', 'SELL', 'IBM', '100', 'MKT', '0', 'NEW', '1')"""
 
 
         commandExecution = """INSERT INTO "main"."executions"("BeginString","BodyLength","MsgType","SenderCompID","TargetCompID","SenderSubID","MsgSeqNum","SendingTime","DeliverToCompID","Account","AvgPx","ClOrdID","CumQty","Currency","ExecID","LastPx","LastQty","OrderID","OrderQty","OrdStatus","OrdType","OrderCapacity","Side","Symbol","TimeInForce","TransactTime","SettlType","SettlDate","TradeDate","ClientID","ExecTransType","CheckSum","executions_key") VALUES ('FIX.4.0','0291','8','GOLD','CARLYLE3','BDBH','171','20060609-11:48:07','OPCOWR','X937101002','0.00000000','274674-0','0','USD','3490404','0.00000000','0','274674','1000','0','1','P','1','TWI','0','20060609-11:48:07','0','20060614','20060609','OPCOERROR','0','001','customkey0124244')"""
 
         commandOrder = """INSERT INTO "main"."orders" ("OrderID","ClOrderID","SenderID","SenderSubID","TargetID","TargetSubID","OnBehalfOfID","OnBehalfOfSubID","DeliverToID","DeliverToSubID","OrigOrderDateTime","Side","Symbol","Quantity","WorkingQty","Leaves","OrderType","Price","Text","ModOrderType","ModPrice","ModQuantity","State","CxlState","Type","DestinationName","BranchSeqNum","orders_key")  VALUES                      """
 
-        cursor.execute(commandExecution) #Execute sql command/query
+        #cursor.execute(commandExecution) #Execute sql command/query
+        #cursor.execute(commandX)  # Execute sql command/query
+        #Quantity Price Side Symbol
+        #db.execute("INSERT INTO orders ("OrderID", "ClOrderID", "SenderID", "SenderSubID", "TargetID", "TargetSubID", "Side", "Symbol", "Quantity", "OrderType", "Price", "State", "orders_key") VALUES ('222', '10000000', 'carl', 'king', 'NYSE', 'EQD', ?, ?, ?, 'MKT', '0', 'NEW', '1')", (Side,Symbol,Quantity,Price))
+        #db.execute('INSERT INTO orders (OrderID, ClOrderID, SenderID, SenderSubID, TargetID, TargetSubID, Side, Symbol, Quantity, OrderType, Price, State, orders_key) VALUES (222, 10000000, 'carl', 'king', 'NYSE', 'EQD', ?, ?, ?, 'MKT', '0', 'NEW', 1)', (Side,Symbol,Quantity,Price))
+
+        #THIS WORKS!!
+        #cursor.execute('INSERT INTO orders (Side, Symbol, Quantity, Price) VALUES (?, ?, ?,?)', (Side,Symbol,Quantity,Price))
+        cursor.execute('INSERT INTO orders (OrderID,ClOrderID, SenderID, SenderSubID, TargetID, TargetSubID,Side, Symbol, Quantity, Price) VALUES (?,?,"Carl_Trading","Carl","BIDS","Bret",?,?,?,?)', (OrderID,ClOrderID,Side,Symbol,Quantity,Price))
+
         logging.info('DB insert complete')
         connection.commit()
         logging.info('commit DB insert')
-        
 
+        #OrderID += 1; ClOrderID = CARL += 1
+        OrderID += 1
+        ClientOrderIDNum += 1
+        ClOrderID = ('CARL_'+str(ClientOrderIDNum))
         print ("\n\nsleeping\n")
-        time.sleep(300)
+        #time.sleep(300)
+        time.sleep(1)
 
+def get_random_values():
+    '''
+    Generating random values
 
+    '''
+    logging.info('Function called: get_random_values')
+    logging.info('generating random values')
+    global Quantity; global Price; global Side; global Symbol
+    Sides=['BUY','SELL']
+
+    Quantity = (random.randint(1, 900000))
+    Price = (random.randint(1, 500))
+    Side = (random.choice(Sides))
+    Symbol = (random.choice(tickers))
+    print('Side=' + Side, 'Quantity=' + str(Quantity), 'Symbol=' + Symbol, 'Price=' + str(Price))
+
+    '''
+    while True:
+        Quantity = (random.randint(1,900000))
+        Price = (random.randint(1,500))
+        Side = (random.choice(Sides))
+        Symbol = (random.choice(tickers))
+        print ('Side='+Side,'Quantity='+str(Quantity),'Symbol='+Symbol,'Price='+str(Price))
+        time.sleep(0.2)
+    '''
 #  --------------------------------------------  END FUNCTIONS
 
+#                  MAIN
 
 print ('\nWelcome to Flint Trader!\n\n')
 
-logging.warning('The program does nothing right now')
+logging.warning('The program is still in development')
 get_platform_status(); logging.info('Check platform status')
 logging.info('Flint Trader started')
+load_tickers()
 
 
 while True:
@@ -156,7 +193,7 @@ while True:
     print ('###############   MENU  ###########\n')
     print ('(n) new order')
     print ('(g) get price')
-    print ('(x) get')
+    print ('(r) random values loop')
     print ('(e) exit')
     print ('(d) start insert order into DB loop')
 
@@ -168,7 +205,8 @@ while True:
     elif choice == 'g':
         break
 
-    elif choice == 'X':
+    elif choice == 'r':
+        get_random_values()  # QA
         break
 
     elif choice == 'd':
