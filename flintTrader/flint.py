@@ -113,6 +113,10 @@ def start_db_order_loop():
     logging.info('Function called: start_db_order_loop')
     logging.info('load tickers')
     OrderID=1000; ClientOrderIDNum=11000; ClOrderID=('CARL_'+str(ClientOrderIDNum))
+    #YYYMMDD
+    TradeDate = (date.strftime("%Y%m%d"))
+    TransactTime = (date.strftime("%Y%m%d-%H:%M:%S"))
+
     print ('\n\nInserting random orders into the DB\n\n')
 
     while True:
@@ -127,12 +131,13 @@ def start_db_order_loop():
 
         #INSERT RANDOM ORDER
         cursor.execute('INSERT INTO orders (OrderID,ClOrderID, SenderID, SenderSubID, TargetID, TargetSubID,Side, Symbol, Quantity, Price) VALUES (?,?,"Carl_Trading","CarlX","BIDS","Bret",?,?,?,?)',(OrderID,ClOrderID,Side,Symbol,Quantity,Price))
-       
+
+
         #INSERT RANDOM EXECUTION
-        cursor.execute('INSERT INTO executions (BeginString, BodyLength, MsgType, SenderCompID, TargetCompID, SenderSubID, MsgSeqNum, SendingTime, DeliverToCompID, Account, AvgPx, ClOrdID, CumQty, Currency, ExecID, LastPx, LastQty, OrderID, OrderQty, OrdStatus, OrdType, OrderCapacity, Side, Symbol, TimeInForce, TransactTime, SettlType, SettlDate, TradeDate, ClientID, ExecTransType, CheckSum, executions_key) VALUES ("FIX.4.0", "0291", "8", "GOLD", "CARLYLE3", "BDBH", "171", "20060609-11:48:07", "OPCOWR", "X937101002", ?, ?, "0", "USD", "3490404", "0.00000000", "0", ?, ?, "0", "1", "P", ?, ?, "0", "20060609-11:48:07", "0", "20060614", "20060609", "OPCOERROR", "0", "001", "customkey0124244")',(Price,ClOrderID,OrderID,Quantity,Side,Symbol))
+        logging.info('Inserting order in Executions')
+        cursor.execute('INSERT INTO executions (BeginString, BodyLength, MsgType, SenderCompID, TargetCompID, SenderSubID, MsgSeqNum, SendingTime, DeliverToCompID, Account, AvgPx, ClOrdID, CumQty, Currency, ExecID, LastPx, LastQty, OrderID, OrderQty, OrdStatus, OrdType, OrderCapacity, Side, Symbol, TimeInForce, TransactTime, SettlType, SettlDate, TradeDate, ClientID, ExecTransType, CheckSum, executions_key) VALUES ("FIX.4.0", "0291", "8", "GOLD", "CARLYLE3", "EQD", "171", ?, "OPCOWR", "X937101002", ?, ?, "0", "USD", "3490404", "0.00000000", "0", ?, ?, "0", "1", "P", ?, ?, "0", ?, "0", "20060614", ?, "OPCOERROR", "0", "001", "customkey0124244")',(TransactTime,Price,ClOrderID,OrderID,Quantity,Side,Symbol,TransactTime,TradeDate))
 
 
-        #Exec queries:  OrderID,WOrderID,ClOrderID,SenderID,SenderSubID,TargetID,TargetSubID,OnBehalfOfID,OnBehalfOfSubID,DeliverToID,DeliverToSubID,AssignedUserID,OrigOrderDateTime,Side,Symbol,Quantity,WorkingQty,”14”=Makes,Leaves,OrderType,Price,Text,ModOrderType,ModPrice,ModQuantity,State,CxlState,Type,DestinationName,BranchSeqNum,XferStatus,*
 
 
         logging.info('DB insert complete')
@@ -158,7 +163,8 @@ def get_random_values():
     Sides=['BUY','SELL']
 
     Quantity = (random.randint(1, 900000))
-    Price = (random.randint(1, 500))
+    Price = round(random.uniform(1.5, 501.9),2)
+
     Side = (random.choice(Sides))
     Symbol = (random.choice(tickers))
     print('Side=' + Side, 'Quantity=' + str(Quantity), 'Symbol=' + Symbol, 'Price=' + str(Price))
