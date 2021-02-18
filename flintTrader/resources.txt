@@ -1,0 +1,6 @@
+Source data links
+
+--
+Short Sell restriction list
+ftp://ftp.nyxdata.com/NYSEGroupSSRCircuitBreakers/NYSEGroupSSRCircuitBreakers_2021/NYSEGroupSSRCircuitBreakers_202102/
+https://www.nyse.com/markets/nyse-arca/notices
