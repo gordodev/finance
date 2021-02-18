@@ -1,0 +1,70 @@
+2020-10-28 13:20:11,272 WARNING  The program does nothing right now
+2020-10-28 13:20:11,272 INFO     Flint Trader started
+2020-10-28 13:20:13,624 WARNING  The program does nothing right now
+2020-10-28 13:20:13,624 INFO     Flint Trader started
+2020-10-28 13:20:15,744 WARNING  The program does nothing right now
+2020-10-28 13:20:15,745 INFO     Flint Trader started
+2020-10-28 13:20:39,826 WARNING  The program does nothing right now
+2020-10-28 13:20:39,826 INFO     Flint Trader started
+2020-10-28 13:20:58,322 WARNING  The program does nothing right now
+2020-10-28 13:20:58,323 INFO     Flint Trader started
+2020-10-28 13:21:39,230 WARNING  The program does nothing right now
+2020-10-28 13:21:39,230 INFO     Flint Trader started
+2020-10-28 13:22:37,089 WARNING  The program does nothing right now
+2020-10-28 13:22:37,089 INFO     Flint Trader started
+2020-10-28 13:23:09,199 WARNING  The program does nothing right now
+2020-10-28 13:23:09,199 INFO     Flint Trader started
+2020-10-28 14:50:02,750 WARNING  The program does nothing right now
+2020-10-28 14:50:02,751 INFO     Flint Trader started
+2020-10-28 14:51:12,425 WARNING  The program does nothing right now
+2020-10-28 14:51:12,425 INFO     Flint Trader started
+2020-10-28 14:51:35,652 WARNING  The program does nothing right now
+2020-10-28 14:51:35,652 INFO     Flint Trader started
+2020-10-28 14:52:31,050 WARNING  The program does nothing right now
+2020-10-28 14:52:31,050 INFO     Flint Trader started
+2020-10-28 14:53:27,275 WARNING  The program does nothing right now
+2020-10-28 14:53:27,275 INFO     Flint Trader started
+2020-10-28 15:01:46,680 WARNING  The program does nothing right now
+2020-10-28 15:01:46,680 INFO     Flint Trader started
+2020-10-28 15:04:53,442 WARNING  The program does nothing right now
+2020-10-28 15:04:53,442 INFO     Flint Trader started
+2020-10-28 15:08:25,724 WARNING  The program does nothing right now
+2020-10-28 15:08:25,724 INFO     Flint Trader started
+2020-10-28 15:09:02,270 WARNING  The program does nothing right now
+2020-10-28 15:09:02,271 INFO     Flint Trader started
+2020-10-28 15:09:44,699 WARNING  The program does nothing right now
+2020-10-28 15:09:44,700 INFO     Flint Trader started
+2020-10-28 15:11:26,075 WARNING  The program does nothing right now
+2020-10-28 15:11:26,075 INFO     Flint Trader started
+2020-10-28 15:11:54,684 WARNING  The program does nothing right now
+2020-10-28 15:11:54,684 INFO     Flint Trader started
+2020-10-28 15:12:06,842 WARNING  The program does nothing right now
+2020-10-28 15:12:06,842 INFO     Flint Trader started
+2020-10-28 15:14:37,132 WARNING  The program does nothing right now
+2020-10-28 15:14:37,132 INFO     Flint Trader started
+2020-10-28 15:14:39,203 WARNING  The program does nothing right now
+2020-10-28 15:14:39,203 INFO     Flint Trader started
+2020-10-28 15:15:31,363 WARNING  The program does nothing right now
+2020-10-28 15:15:31,363 INFO     Flint Trader started
+2020-10-28 15:15:33,355 WARNING  The program does nothing right now
+2020-10-28 15:15:33,355 INFO     Flint Trader started
+2020-10-28 15:17:22,234 WARNING  The program does nothing right now
+2020-10-28 15:17:22,234 INFO     Flint Trader started
+2020-10-28 15:17:23,892 WARNING  The program does nothing right now
+2020-10-28 15:17:23,892 INFO     Flint Trader started
+2020-10-29 18:22:55,924 WARNING  The program does nothing right now
+2020-10-29 18:22:55,924 INFO     Flint Trader started
+2020-10-29 18:34:48,459 INFO     Flint Trader started
+2020-10-29 18:34:57,965 INFO     Function called: def check_cpu
+2020-10-29 18:35:00,767 INFO     Function called: def check_space
+2020-10-29 18:35:12,753 WARNING  User entered unknown value. Shutting down.
+2020-10-29 18:38:38,813 INFO     Flint Trader started
+2020-10-29 18:38:40,022 INFO     Function called: check_memory
+2020-10-29 18:38:42,428 INFO     Function called: check_memory
+2020-10-29 18:38:44,356 INFO     Function called: check_cpu
+2020-10-29 18:38:45,101 INFO     Function called: check_cpu
+2020-10-29 18:38:45,835 INFO     Function called: check_space
+2020-10-29 18:38:46,551 INFO     Function called: check_space
+2020-10-29 18:38:57,997 WARNING  User entered unknown value. Shutting down.
+2020-10-29 18:39:00,000 INFO     Shutting down Flint Trader
+2020-10-29 18:39:00,000 INFO     Function called: shutdown

@@ -1,0 +1,35 @@
+SELECT OrderID,WOrderID,ClOrderID,SenderID,SenderSubID,TargetID,TargetSubID,OnBehalfOfID,OnBehalfOfSubID,DeliverToID,DeliverToSubID,AssignedUserID,OrigOrderDateTime,Side,Symbol,Quantity,WorkingQty,”14”=Makes,Leaves,OrderType,Price,Text,ModOrderType,ModPrice,ModQuantity,State,CxlState,Type,DestinationName,BranchSeqNum,XferStatus,*
+
+ FROM Orders where OrderID like '74256'
+
+
+
+CREATE TABLE "orders" (
+	"OrderID"	TEXT,
+	"ClOrderID"	TEXT,
+	"SenderID"     TEXT,
+	"SenderSubID"     TEXT,
+	"TargetID"     TEXT,
+	"TargetSubID"     TEXT,
+	"OnBehalfOfID"     TEXT,
+	"OnBehalfOfSubID"     TEXT,
+	"DeliverToID"	TEXT,
+	"DeliverToSubID"	TEXT,
+	"OrigOrderDateTime"	TEXT,
+	"Side"	TEXT,
+	"Symbol"	TEXT,
+	"Quantity"	TEXT,
+	"WorkingQty"	TEXT,
+	"Leaves"	TEXT,
+	"OrderType"	TEXT,
+	"Price"	TEXT,
+	"Text"	TEXT,
+	"ModOrderType"	TEXT,
+	"ModPrice"	TEXT,
+	"ModQuantity"	TEXT,
+	"State"	TEXT,
+	"CxlState"	TEXT,
+	"Type"	TEXT,
+	"DestinationName"	TEXT,
+	"BranchSeqNum"	TEXT
+);

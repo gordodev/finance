@@ -1,0 +1,148 @@
+PING markets.cboe.com.cdn.cloudflare.net (104.17.228.57) 56(84) bytes of data.
+64 bytes from 104.17.228.57 (104.17.228.57): icmp_seq=1 ttl=128 time=16.2 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 16.239/16.239/16.239/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.228.57) 56(84) bytes of data.
+64 bytes from 104.17.228.57 (104.17.228.57): icmp_seq=1 ttl=128 time=17.8 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 17.777/17.777/17.777/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=17.0 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 17.000/17.000/17.000/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=19.0 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 19.045/19.045/19.045/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=19.1 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 19.102/19.102/19.102/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=27.5 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 27.494/27.494/27.494/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=29.9 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 29.930/29.930/29.930/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.228.57) 56(84) bytes of data.
+64 bytes from 104.17.228.57 (104.17.228.57): icmp_seq=1 ttl=128 time=17.0 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 16.968/16.968/16.968/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=19.3 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 19.297/19.297/19.297/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+Unable to connect to http://markets.cboe.com
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=34.2 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 34.219/34.219/34.219/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+PING markets.cboe.com.cdn.cloudflare.net (104.17.227.57) 56(84) bytes of data.
+64 bytes from 104.17.227.57 (104.17.227.57): icmp_seq=1 ttl=128 time=18.4 ms
+
+--- markets.cboe.com.cdn.cloudflare.net ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 18.364/18.364/18.364/0.000 ms
+good
+Downloading CBOE file...
+
+
+
+Download attempt complete.
+
+Unable to connect to http://markets.cboe.com
+Unable to connect to http://markets.cboe.com
+Unable to connect to http://markets.cboe.com
+Unable to connect to http://markets.cboe.com

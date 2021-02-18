@@ -1,0 +1,73 @@
+#!/bin/ksh
+clear
+echo "DESCRIPTION: Test you on things"
+quizname=test
+ 
+DIRECTORY="./log"
+if [ ! -d "$DIRECTORY" ]
+then
+  mkdir ./log
+fi
+ 
+echo "~~" >> ./log/$quizname.log
+echo "$quizname started at $(date)" >> ./log/$quizname.log
+ 
+function addpoints {
+ 
+read answer?"What is answer? "
+if [[ "$answer" = "$canswer"* ]]
+then
+        let cqnum=cqnum+1
+else
+     date >> ./log/$quizname.err
+     echo "$question is not $answer, it is $canswer" >> ./log/$quizname.err
+fi
+clear
+ 
+}
+ 
+#Initiate correct question variable
+cqnum=0 
+qnum=0 
+ 
+#Questions _____________________________________ vvv
+tqnum=0
+#QUESTIONBEGIN
+let tqnum=tqnum+1
+let qnum=qnum+1
+ 
+ 
+echo "Question $qnum:"
+echo $qnum\) Who are you?
+question='Who are you?'
+echo "   A: Carl"
+echo "   B: nobody"
+echo "   C: somebody"
+echo "   D: a man"
+canswer="a"
+#Time recorded
+ 
+#This will store and display current time. Current time is time since epoch in seconds
+echo "Time is: $(date +%R:%S)"
+btime=$(date +"%s") 
+#Activity to be timed begins here___________Begin timer
+ 
+addpoints
+#QUESTIONEND
+#QUESTIONFINAL
+#END Questions _________________________________________________________ ^^^
+ 
+#Activity complete here ______________________________________END timing
+etime=$(date +"%s") #End time recorded
+diff=$(($etime-$btime)) #Elapsed time calculation
+echo "$(($diff / 60)) minutes and $(($diff % 60)) seconds elapsed."
+#Begin scoring logic
+typeset -F0 score
+typeset -F0 cqnum
+typeset -F0 tqnum
+let score="((($cqnum/$tqnum)*100))"
+echo "You got $cqnum answers correct out of $tqnum questions and your score was $score%"
+#echo "score math is $cqnum / $tqnum times 100"
+echo "$(($diff / 60)) minutes and $(($diff % 60)) seconds elapsed.">> ./log/$quizname.log
+echo "You got $cqnum answers correct out of $tqnum questions and your score was $score%" >> ./log/$quizname.log
+echo "$quizname stopped at $(date)" >> ./log/$quizname.log
