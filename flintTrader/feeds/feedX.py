@@ -9,7 +9,7 @@ resistance = 400
 #Functions +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 def get_interval():
-    intervals = ['.1'] * 10 + ['.5'] * 50 + ['.8'] * 40
+    intervals = ['0.2'] * 10 + ['0.8'] * 50 + ['1.3'] * 40
     return random.choice(intervals)
 
 def get_price():
