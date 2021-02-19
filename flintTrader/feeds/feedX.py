@@ -17,11 +17,19 @@ def get_price():
     print ('getting price',random.randint(50,80))
     random.randint(50,80)
     '''
+    global price
     direction = ['up','down']
     direction = random.choice(direction)
-    ticks = ['1','2','.8']
-    tick = random.choice(ticks)
+    ticks = ['1','2','0.8']
+    tick = int(float(random.choice(ticks)))
+    print ('tick: ',tick)
+
+    #Change Price
+    if direction == 'up':
+        price += tick
+
     print (direction,tick)
+    print (price)
 
 def price_init():
     '''
