@@ -3,8 +3,8 @@ import time
 
 #Generate random prices within range
 
-#prices = ['','','','','','']
-
+support = 2
+resistance = 400
 
 #Functions +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -23,6 +23,13 @@ def get_price():
     ticks = ['1','2','0.8']
     tick = float(random.choice(ticks))
     #print ('tick: ',tick)
+
+    #Check if price outside bands
+
+    if price > resistance:
+        direction = 'down'
+    elif price < support:
+        direction = 'up'
 
     #Change Price
     if direction == 'up':
@@ -51,10 +58,10 @@ print ('price is: ',price)
 while True:
     #print(get_interval())
     global interval
-    #interval = int(float(get_interval()))
-    interval = 1
+    interval = int(float(get_interval()))
+    #interval = 1
     get_price()
-    time.sleep(1)
+    time.sleep(interval)
 
 
 
