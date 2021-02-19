@@ -21,14 +21,17 @@ def get_price():
     direction = ['up','down']
     direction = random.choice(direction)
     ticks = ['1','2','0.8']
-    tick = int(float(random.choice(ticks)))
-    print ('tick: ',tick)
+    tick = float(random.choice(ticks))
+    #print ('tick: ',tick)
 
     #Change Price
     if direction == 'up':
         price += tick
+    else:
+        price -= tick
 
-    print (direction,tick)
+    #print (direction,tick)
+    price = round((price),2)
     print (price)
 
 def price_init():
