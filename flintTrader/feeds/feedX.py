@@ -17,7 +17,7 @@ def get_price():
     print ('getting price',random.randint(50,80))
     random.randint(50,80)
     '''
-    global price
+    global price, f
     direction = ['up','down']
     direction = random.choice(direction)
     ticks = ['1','2','0.8']
@@ -38,8 +38,8 @@ def get_price():
         price -= tick
 
     #print (direction,tick)
-    price = round((price),2)
-    print (price)
+    price = round((price),2); Px = str(price)
+    print (price); f.write(Px); f.flush() 
 
 def price_init():
     '''
@@ -47,6 +47,9 @@ def price_init():
     '''
     return random.randint(50,80)
 
+def open_datafile():
+    global f
+    f = open ("./logs/NYSE.dat","w")
 
 #Functions ------------------------------------------------------------
 
@@ -55,12 +58,14 @@ def price_init():
 price = price_init()
 print ('price is: ',price)
 
+open_datafile()
+
 while True:
     #print(get_interval())
     global interval
     interval = int(float(get_interval()))
     #interval = 1
-    get_price()
+    open_datafile(); get_price()
     time.sleep(interval)
 
 
