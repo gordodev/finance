@@ -17,6 +17,25 @@ def get_price():
     print ('getting price',random.randint(50,80))
     random.randint(50,80)
     '''
+    direction = ['up','down']
+    direction = random.choice(direction)
+    ticks = ['1','2','.8']
+    tick = random.choice(ticks)
+    print (direction,tick)
+
+def price_init():
+    '''
+    set initial price
+    '''
+    return random.randint(50,80)
+
+
+#Functions ------------------------------------------------------------
+
+#Set initial price
+
+price = price_init()
+print ('price is: ',price)
 
 while True:
     #print(get_interval())
@@ -29,4 +48,3 @@ while True:
 
 
 
-#Functions ------------------------------------------------------------
