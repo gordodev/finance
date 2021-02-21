@@ -12,6 +12,7 @@ quote = 'NULL'
 price_history = []
 avg_px = 0
 account_value = 0
+total_cost = 0
 
 class bcolors:
     HEADER = '\033[95m'
@@ -36,7 +37,7 @@ def clear():
         _ = system('clear') 
 
 def enter_order():
-    global side, position, quantity, quote, avg_px, price_history, account_value
+    global side, position, quantity, quote, avg_px, price_history, account_value, total_cost
     print ('6 - Buy 100')
     print ('7 - Buy 1000')
     print ('8 - Buy 10000\n')
@@ -45,17 +46,21 @@ def enter_order():
     print ('5 - Buy 100')
     print ('-')
     print ('a - Profit Algo')
+    print ('v - Display price history')
 
     print ('\nPosition =',position)
     print ('Buying power =',buying_power)
     print ('AvgPx =',avg_px)
     print ('Account value =',account_value)
+    print ('Total cost: ',total_cost)
+    if total_cost > 0:
+        print ('Average cost: ',total_cost/position)
     print ('')
 
     option = input ('Select order: ')
     print ('')
     
-    #Set side & quantity
+    #----------------------------------  Set side & quantity
     if option == '6':
         side = 'buy'; quantity = 100
    
@@ -77,30 +82,37 @@ def enter_order():
     if option == 'a':
         print ('')
 
+    if option == 'v':
+        print ('Price history: ',price_history)
+        input ('')
 
-    quote=float(get_quote()) 
+
+    quote=float(get_quote()) #Get price
     position_update()        #Update position & buying power  
     avg_px = round((mean(price_history)),2)
 
     print ('NBBO: ',get_quote(),'\n')
-    #ENTER ORDER ^^
+    #_____________________________________def enter_order() ^^
 
 def auto_trader():
+    #Activate automatic trading mode
     while True:
         quote=float(get_quote()); price_history.append(quote)
 
-
 def position_update():
-    global position, buying_power, account_value
+    global position, buying_power, account_value, total_cost
 
     if side == 'buy':
         #Reject if not enough money
         if (buying_power - float(quote * quantity)) < 0:
             print (f"{bcolors.WARNING}ORDER REJECT: Insufficient funds{bcolors.ENDC}"); return
+        
         position += quantity
         cost = float(quote * quantity); buying_power -= round((cost),2)
-        price_history.append(quote)#Get price - add to history
+        total_cost += cost
+        price_history.append(quote)     #Get price - add to history
         account_value = buying_power + (position * quote)
+        
         print ('Account value: ',account_value,buying_power,position,quote,'Done')
         print ('Bought ',quantity)
 
@@ -110,10 +122,12 @@ def position_update():
             print (f"{bcolors.WARNING}ORDER REJECT: Insufficient shares{bcolors.ENDC}")
             print ('You tried to sell',quantity,'shares, but you only have',position,'!\n\n')
             return
+        
         position -= quantity
-        cost = float(quote * quantity); buying_power += cost
-        price_history.append(quote)#Get price - add to history
+        cost = float(quote * quantity); buying_power += round((cost),2)
+        price_history.append(quote)    #Get price - add to history
         account_value = buying_power + (position * quote)
+        
         print ('Account value: ',account_value,buying_power,position,quote,'Done')
         print ('Sold ',quantity)
 
