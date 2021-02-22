@@ -54,7 +54,8 @@ def enter_order():
     print ('Account value =',account_value)
     print ('Total cost: ',total_cost)
     if total_cost > 0:
-        print ('Average cost: ',total_cost/position)
+        if position > 0:
+            print ('Average cost: ',total_cost/position)
     print ('')
 
     option = input ('Select order: ')
@@ -64,32 +65,41 @@ def enter_order():
     if option == '6':
         side = 'buy'; quantity = 100
    
-    if option == '7':
+    elif option == '7':
         side = 'buy'; quantity = 1000
 
-    if option == '8':
+    elif option == '8':
         side = 'buy'; quantity = 10000
 
-    if option == '3':
+    elif option == '3':
         side = 'sell'; quantity = 100
 
-    if option == '4':
+    elif option == '4':
         side = 'sell'; quantity = 1000
 
-    if option == '5':
+    elif option == '5':
         side = 'sell'; quantity = 10000
 
-    if option == 'a':
+    elif option == 'a':
         print ('')
-
-    if option == 'v':
+        return
+    
+    elif option == 'v':
         print ('Price history: ',price_history)
-        input ('')
+        input ('\nPress Enter\n')
+        return
+
+    else:
+        print (f"{bcolors.FAIL}You must enter a value.{bcolors.ENDC}")
+        #(f"{bcolors.WARNING}ORDER REJECT: Insufficient funds{bcolors.ENDC}")
+        time.sleep(2)
+        clear()
+        return
 
 
-    quote=float(get_quote()) #Get price
-    position_update()        #Update position & buying power  
-    avg_px = round((mean(price_history)),2)
+    quote=float(get_quote())                          #Get price
+    position_update()                                 #Update position & buying power  
+    avg_px = round((mean(price_history)),2)           #Avg_px is average of price history list
 
     print ('NBBO: ',get_quote(),'\n')
     #_____________________________________def enter_order() ^^
