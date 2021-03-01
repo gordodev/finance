@@ -63,8 +63,6 @@ def get_price():
             PxDelta = round((lastPx-price),2)
             uptick = "no"
             
-            
-            
             if PxDelta > 2:         #Checking if downtick is large
                 playsound('down.wav')
                 print ('^\n^\n^\downtick - (',PxDelta,') ',price)
@@ -75,7 +73,7 @@ def get_price():
             
         #Medium level alarm for uptick/downtick should be here, then use uptick variable to indicate up/down. Consider change variable to tick=up/down
         
-        lastPx = price
+        lastPx = price              #Set last price to current price before starting again
         time.sleep(13)
 
 #     MAIN   -------------------------------------------------------------------    
