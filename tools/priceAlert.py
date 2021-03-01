@@ -3,6 +3,14 @@ from yahoo_fin import stock_info as si
 from playsound import playsound
 import sys
 
+import pyttsx3
+engine = pyttsx3.init()
+engine.setProperty('rate', 255)
+
+#from Tkinter import *
+
+import os
+os.system('color 0f') # sets the background to black
 
 lastPx = "NULL"
 PxDelta = 0
@@ -11,6 +19,11 @@ PxDelta = 0
 def get_symbol():
     global symbol
     symbol=input('Enter symbol: ')
+    
+def say(words):
+    #global speech
+    engine.say(words)
+    engine.runAndWait()
     
 def get_price():
     '''
@@ -32,6 +45,9 @@ def get_price():
         
         #CRITICAL TRIGGER
         if price > criticalHigh or price < criticalLow:
+            os.system('color 4f') # sets the background to red
+            message = (symbol,price)
+            say(message)
             playsound('criticalAlert.wav')
             print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO MERRILL NOW! *****\n\n\n\n\n')
         
@@ -45,29 +61,40 @@ def get_price():
                 continue
 
         
-        #            UPTICK ALERT ---------
+        #            UPTICK ALERT ---------    ^
         
         if price > lastPx:          #Checking if price increased
             
             uptick = "yes"
             PxDelta = round((price-lastPx),2)
+            os.system('color af') # sets the background to light green
             
             if PxDelta > 2:         #Checking if uptick is large
+                os.system('color af') # sets the background to light green
+                message = (symbol,price,'up',PxDelta)
+                say(message)
                 playsound('Ring06.wav')
                 print ('^\n^\n^\nuptick - (',PxDelta,') ',price)
             
-        #            DOWNTICK ALERT ---------
+        #            DOWNTICK ALERT ---------   V
             
         elif price < lastPx:       #Checking if price decreased
             
             PxDelta = round((lastPx-price),2)
             uptick = "no"
+            os.system('color cf') # sets the background to light red
             
             if PxDelta > 2:         #Checking if downtick is large
+                os.system('color cf') # sets the background to light red
+                message = (symbol,price,'down',PxDelta)
+                say(message)
                 playsound('down.wav')
                 print ('^\n^\n^\downtick - (',PxDelta,') ',price)
                              
         if PxDelta > 3:
+            os.system('color 4f') # sets the background to red
+            message = (symbol,price,'High Volatility, down',PxDelta)
+            say(message)
             playsound('AlarmClock.mp3')
             print ("PRICE JUMP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n')
             
