@@ -67,7 +67,7 @@ def get_price():
             
             uptick = "yes"
             PxDelta = round((price-lastPx),2)
-            os.system('color af') # sets the background to light green
+            os.system('color 02') # sets the foreground green
             
             if PxDelta > 2:         #Checking if uptick is large
                 os.system('color af') # sets the background to light green
@@ -82,7 +82,7 @@ def get_price():
             
             PxDelta = round((lastPx-price),2)
             uptick = "no"
-            os.system('color cf') # sets the background to light red
+            os.system('color 04') # sets the foreground red
             
             if PxDelta > 2:         #Checking if downtick is large
                 os.system('color cf') # sets the background to light red
