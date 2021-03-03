@@ -3,9 +3,10 @@ from yahoo_fin import stock_info as si
 from playsound import playsound
 import sys
 
+#Text to speech libraries
 import pyttsx3
 engine = pyttsx3.init()
-engine.setProperty('rate', 255)
+engine.setProperty('rate', 255)  #Speed
 
 #from Tkinter import *
 
@@ -14,7 +15,20 @@ os.system('color 0f') # sets the background to black
 
 lastPx = "NULL"
 PxDelta = 0
+price = 0
 
+#QA Mode
+qa_prices = [1,1,2,2,4,4,7,7,13,13,7,7,4,4,2,2,1,1]
+if len(sys.argv) > 4: 
+    if (sys.argv[4]) == 'qa':
+        print ('>4 args')
+        test_mode = 'qa'  #Activate QA mode
+else:
+   print ('else')
+   test_mode = 0
+
+
+#                          FUNCTIONS
 
 def get_symbol():
     global symbol
@@ -24,8 +38,32 @@ def say(words):
     #global speech
     engine.say(words)
     engine.runAndWait()
+
+def get_price(name):
+    '''
+    Get price from Yahoo
+    '''
+    global symbol, price
     
-def get_price():
+    try:
+            #print ('Try')
+            
+            #criticalHigh = int(sys.argv[3])
+            
+            price=si.get_live_price(name) #Get price from Yahoo
+            #price=si.get_live_price(symbol) #Get price from Yahoo
+            #print (price)
+            price = round(price, 2)
+            #print (price)
+    except:
+            print ('NO DATA')
+            playsound('crashEcho.mp3')
+        
+    #print ('Passed')
+    
+    return price
+
+def price_alert():
     '''
     Loop; Checking price and alerting if target prices hit or price outside of bounds
     
@@ -35,13 +73,32 @@ def get_price():
     uptick/downtick = Is current price higher/lower than lastPx?
     
     '''
-    global lastPx,PxDelta
+    global lastPx,PxDelta,price,test_mode,qa_prices
     
-    print ('\n\n\n\n\n\n\nMonitoring Price changes')
+    prices_len = len(qa_prices)
+    count = 0
+    
+    print ('\n\n\n\n\n\n\nMonitoring Price changes:','['+symbol+'@',price,']')
+    print (price)
     
     while True:
-        price=si.get_live_price(symbol) #Get price from Yahoo
-        price = round(price, 2)
+        
+        
+        #test_mode = 'qa'
+        
+        if test_mode == 'qa':
+            price = qa_prices[count]
+            #print (price)
+            #time.sleep(2)
+        
+        
+        else:
+            get_price(symbol)
+
+        if count < prices_len:
+            count += 1
+        else:
+            break
         
         #CRITICAL TRIGGER
         if price > criticalHigh or price < criticalLow:
@@ -122,4 +179,4 @@ else:
     criticalHigh = int(sys.argv[3])
 
 #Begin price alert loop
-get_price()
+price_alert()
