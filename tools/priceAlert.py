@@ -18,11 +18,12 @@ os.system('color 0f') # activate defaul color scheme
 lastPx = "NULL"
 
 print ('Arguments: ',len(sys.argv))
-time.sleep(1)
+print (sys.argv)
+time.sleep(2)
 
 
 if len(sys.argv) > 5:
-    PxDelta = 0; delta1=0.3+float(sys.argv[5]); delta2=0.6+float(sys.argv[5]) #PxDelta levels 1/2
+    PxDelta = 0; delta1=0.3*float(sys.argv[5]); delta2=0.8*float(sys.argv[5]) #PxDelta levels 1/2
 else:
     PxDelta = 1.8; delta1=2.5; delta2=0.6                           #PxDelta levels default
 
@@ -35,13 +36,14 @@ price = 0
 
 #QA Mode
 qa_prices = [1,1.5,2,2,4,4,7,7.5,13,13,7,7,4,4.5,2,2,1,1]
+#import pdb; pdb.set_trace()    #QA
 if len(sys.argv) > 4: 
     if (sys.argv[4]) == 'qa':
         print ('>4 args')
         test_mode = 'qa'  #Activate QA mode
-else:
-   print ('else')
-   test_mode = 0
+    else:
+       print ('else')   #QA
+       test_mode = 0
 
 
 #                          FUNCTIONS
@@ -103,7 +105,7 @@ def price_alert():
         
         if test_mode == 'qa':
             price = qa_prices[count]
-            print ('\n\n\n\n\n\n\nMonitoring Price changes:','['+symbol+'@',price,']')
+            print ('\n\n\n\n\n\n\nMonitoring Price changes:','['+symbol+'@',price,']\n','Delta 1/2: ',delta1,delta2)
             #print (price)
             #print (price)
             #time.sleep(2)
@@ -116,8 +118,9 @@ def price_alert():
         
         else:
             get_price(symbol)
-            print ('\n\n\n\n\n\n\nMonitoring Price changes------------:','['+symbol+'@',price,']')
+            #print ('\n\n\n\n\n\n\nMonitoring Price changes------------:','['+symbol+'@',price,']            PROD')
             #print (price)
+            print ('\n\n\n\n\n\n\nMonitoring Price changes:','['+symbol+'@',price,']\n','Delta 1/2: ',delta1,delta2,'PROD alternate')
 
         
         
