@@ -9,13 +9,26 @@ import pyttsx3
 engine = pyttsx3.init()
 engine.setProperty('rate', 255)  #Speed
 
+#Latest changes:
+'''
+3/7
+[ ] change uptick/downtick to tick
+[ ] Finish trends tracking
+
+
+'''
 
 #from Tkinter import *
 
 import os
 os.system('color 0f') # activate defaul color scheme 
 
+#Initiate variables:
 lastPx = "NULL"
+pxHistory = []; last5_AVG = []
+up = []; down = []   #for tracking direction trends
+tick = "NULL"
+trend_count = 0
 
 print ('Arguments: ',len(sys.argv))
 print (sys.argv)
@@ -23,7 +36,7 @@ time.sleep(2)
 
 
 if len(sys.argv) > 5:
-    PxDelta = 0; delta1=0.3*float(sys.argv[5]); delta2=0.8*float(sys.argv[5]) #PxDelta levels 1/2
+    PxDelta = 0; delta1=0.3*float(sys.argv[5]); delta2=0.45*float(sys.argv[5]) #PxDelta levels 1/2
 else:
     PxDelta = 1.8; delta1=2.5; delta2=0.6                           #PxDelta levels default
 
@@ -35,7 +48,9 @@ Setting delta levels of 2 and 3 is pretty quiet even for volatile stock like GME
 price = 0
 
 #QA Mode
-qa_prices = [1,1.5,2,2,4,4,7,7.5,13,13,7,7,4,4.5,2,2,1,1]
+#qa_prices = [1,1.5,2,2,4,4,7,7.5,13,13,7,7,4,4.5,2,2,1,1]
+qa_prices = [1,1.5,1.4,2,2,4,4,7,7.5,13,13,7,7,4,4.5,9,2,3,2,5,1,1,2,4,1,7,2,9,22,5,3,10,25,6]  #Price trends
+
 #import pdb; pdb.set_trace()    #QA
 if len(sys.argv) > 4: 
     if (sys.argv[4]) == 'qa':
@@ -51,6 +66,96 @@ if len(sys.argv) > 4:
 def get_symbol():
     global symbol
     symbol=input('Enter symbol: ')
+    
+def get_trend():
+    '''
+    figure out price trend by comparing average or last 5 prices vs previous average.
+    
+    pxHistory: List with all prices
+    pxTrend: Last 5 prices
+    
+    NOTES:
+    Looking for $3 price movement in 5 minutes. With 13s interval, that is 30 tick checks
+    
+    '''
+    global up, down, price, tick, PxDelta, trend_count
+
+    print (tick,tick) 
+    
+    if trend_count == 30:
+        trend_count = 0
+    else:
+        trend_count += 1  #Add to trend count
+    
+    
+    if PxDelta > 0:                       #Check if price moved. Store in PxDelta if true
+        if tick == 'up':
+            up.append(PxDelta)
+           
+        if tick == 'down':
+            down.append(PxDelta)
+            
+
+    print ('up/down: ',up,'/',down)
+
+    '''
+    if len(up) < 30 and len(down) < 30:      #Check if either list is less than 5 len
+        print ('up or down is less than 5')
+        if sum(up) > sum(down):           #Check if trend is up
+            if sum(up) > 3:             #Check if trend is strong
+                say('Price trending upward. UP UP UP')
+        
+        #If trend is down
+        else:
+            if sum(down) > 3:
+                say('Price trending down')
+    '''
+    if trend_count == 30:                       #Only check for trends every 30 ticks
+        if len(up) > 30 or len(down) > 30:      #Check if either list is greater than 30
+            print ('up or down has now past 30')
+            say('Trend check active')
+            
+            #Trucate list if greater than 30
+            if len(up) > 30:
+                say('popping UP')
+                up.pop(0)
+            elif len(down) > 30:
+                say('popping DOWN')
+                down.pop(0)
+                
+            if sum(up) > sum(down):
+                if sum(up) > 3:
+                    say('Price trending up. UP UP and AWAY')
+            else:
+                if sum(down) > 3:
+                    say('Price trending down. DOWN goes FRASER')
+        
+
+  
+    #When you have less than 5 up/down values, give total net movement. When you have 5 or more, only give net of last 5.
+    
+    
+    '''
+    global price,pxHistory,pxTrend,last5_AVG
+    
+    pxHistory.append(price)
+    print ('Price history: ',pxHistory)#QA
+    
+    pxTrend.append(price) #Add latest price to list
+    if len(pxTrend) > 5:  #Make sure list stays 5 or less
+        pxTrend.pop(0)    #Remove first item to make list 5 items
+    
+    #Calculate price average
+    last5_AVG = sum(pxTrend) / len(pxTrend)
+    
+    if len(pxHistory) > 0:
+    '''
+        
+    
+    
+    
+
+
     
 def say(words):
     #global speech
@@ -88,10 +193,10 @@ def price_alert():
     PxDelta=Difference in price(last vs current)
     criticalHigh = Major alarm for target high price 
     criticalLow = Major alarm for target low price
-    uptick/downtick = Is current price higher/lower than lastPx?
+    tick = Is current price higher/lower than lastPx?
     
     '''
-    global lastPx,PxDelta,price,test_mode,qa_prices
+    global lastPx,PxDelta,price,test_mode,qa_prices,tick
     
     prices_len = len(qa_prices)
     count = 0
@@ -106,14 +211,14 @@ def price_alert():
         if test_mode == 'qa':
             price = qa_prices[count]
             print ('\n\n\n\n\n\n\nMonitoring Price changes:','['+symbol+'@',price,']\n','Delta 1/2: ',delta1,delta2)
-            #print (price)
-            #print (price)
-            #time.sleep(2)
-            if count < prices_len:
+           
+            print ('count: ',count)
+            print ('price list len: ',len(qa_prices))
+            if count < (prices_len - 1):
                 count += 1
             else:
                 count = 0
-                break
+                #break
         
         
         else:
@@ -147,7 +252,7 @@ def price_alert():
         
         if price > lastPx:          #Checking if price increased
             
-            uptick = "yes"
+            tick = "up"
             PxDelta = round((price-lastPx),2)
             os.system('color 02') # sets the foreground green
             
@@ -167,7 +272,7 @@ def price_alert():
         elif price < lastPx:       #Checking if price decreased
             
             PxDelta = round((lastPx-price),2)
-            uptick = "no"
+            tick = "down"
             os.system('color 04') # sets the foreground red
             
             if PxDelta > delta1:         #Checking if downtick is large
@@ -184,7 +289,7 @@ def price_alert():
                 playsound('AlarmClock.mp3')
                 print ("PRICE DROP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n')
         '''    
-        Medium level alarm for uptick/downtick should be here, then use uptick variable to indicate up/down. Consider change variable to tick=up/down
+        Medium level alarm for uptick/downtick should be here, then use tick variable to indicate up/down. 
         
         Avg Px pattern display: Maybe on larger price moves, display last 5 average prices:
             Create average price list and price list, then sum(list)/len(list) > average price list
@@ -193,7 +298,15 @@ def price_alert():
         '''
         
         lastPx = price              #Set last price to current price before starting again
-        time.sleep(13)
+        get_trend()
+        #Sleep interval for QA mode and PROD
+        if test_mode == 'qa':
+            #time.sleep(1)  #QA interval
+            print ('\n\nMODE: QA\n')
+        else:
+            time.sleep(13) #DEFAULT Interval
+        
+        
 
 #     MAIN   -------------------------------------------------------------------    
 '''
