@@ -75,17 +75,17 @@ def get_trend():
     pxTrend: Last 5 prices
     
     NOTES:
-    Looking for $3 price movement in 5 minutes. With 13s interval, that is 30 tick checks
+    Looking for $3 price movement in 5 minutes. With 13s interval, that is 13.8 tick checks
     
     '''
     global up, down, price, tick, PxDelta, trend_count
 
     print (tick,tick) 
     
-    if trend_count == 30:
+    if trend_count == 13:                 #Determines trend check interval. This is max count before reset
         trend_count = 0
     else:
-        trend_count += 1  #Add to trend count
+        trend_count += 1                  #Add to trend count
     
     
     if PxDelta > 0:                       #Check if price moved. Store in PxDelta if true
@@ -98,64 +98,38 @@ def get_trend():
 
     print ('up/down: ',up,'/',down)
 
-    '''
-    if len(up) < 30 and len(down) < 30:      #Check if either list is less than 5 len
-        print ('up or down is less than 5')
-        if sum(up) > sum(down):           #Check if trend is up
-            if sum(up) > 3:             #Check if trend is strong
-                say('Price trending upward. UP UP UP')
-        
-        #If trend is down
-        else:
-            if sum(down) > 3:
-                say('Price trending down')
-    '''
-    if trend_count == 30:                       #Only check for trends every 30 ticks
-        if len(up) > 30 or len(down) > 30:      #Check if either list is greater than 30
-            print ('up or down has now past 30')
+    if trend_count == 13:                       #Only check for trends every 30 ticks
+        if len(up) > 13 or len(down) > 13.8:      #Check if either list is greater than 13.8
+            print ('up or down has now past 13.8')
             say('Trend check active')
             
-            #Trucate list if greater than 30
-            if len(up) > 30:
+            #Trucate list if greater than 13
+            if len(up) > 13:
                 say('popping UP')
                 up.pop(0)
-            elif len(down) > 30:
+            elif len(down) > 13:
                 say('popping DOWN')
                 down.pop(0)
                 
             if sum(up) > sum(down):
                 if sum(up) > 3:
                     say('Price trending up. UP UP and AWAY')
+                    message = ('Price up to',price)
+                    say(message)
+                    with open("trends.dat","a+") as f:
+                        f.write(str(price)); comma = ','; f.write(comma); f.write(str(sum(up))); f.write('\n')
             else:
                 if sum(down) > 3:
                     say('Price trending down. DOWN goes FRASER')
+                    message = ('Price down to',price)
+                    say(message)
+                    with open("trends.dat","a+") as f:
+                        f.write(str(price)); comma = ','; f.write(comma); f.write(str(sum(down))); f.write('\n')
         
 
   
     #When you have less than 5 up/down values, give total net movement. When you have 5 or more, only give net of last 5.
     
-    
-    '''
-    global price,pxHistory,pxTrend,last5_AVG
-    
-    pxHistory.append(price)
-    print ('Price history: ',pxHistory)#QA
-    
-    pxTrend.append(price) #Add latest price to list
-    if len(pxTrend) > 5:  #Make sure list stays 5 or less
-        pxTrend.pop(0)    #Remove first item to make list 5 items
-    
-    #Calculate price average
-    last5_AVG = sum(pxTrend) / len(pxTrend)
-    
-    if len(pxHistory) > 0:
-    '''
-        
-    
-    
-    
-
-
     
 def say(words):
     #global speech
@@ -299,6 +273,13 @@ def price_alert():
         
         lastPx = price              #Set last price to current price before starting again
         get_trend()
+        
+        #Store price data
+        
+        with open("prices.dat","a+") as f:
+            f.write(str(price)); comma = ','; f.write(comma)
+            
+        
         #Sleep interval for QA mode and PROD
         if test_mode == 'qa':
             #time.sleep(1)  #QA interval
