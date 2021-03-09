@@ -86,7 +86,8 @@ def get_trend():
     
     if trend_count == history_limit:                 #Determines trend check interval. This is max count before reset
         trend_count = 0
-        say('Checking for trends')
+        message = ('Checking for',symbol,'trends')
+        say(message)
     else:
         trend_count += 1                  #Add to trend count
     
@@ -117,6 +118,7 @@ def get_trend():
     if trend_count == history_limit:                       #Only check for trends every 30 ticks
         if len(up) >= history_limit or len(down) >= history_limit:      #Check if either list is greater than history_limit
             print ('up or down has now past history_limit')
+            message = (symbol,'Trend check active. History limit met')
             say('Trend check active. History limit met')
             
             
@@ -125,14 +127,14 @@ def get_trend():
             if sum(up) > sum(down):                       #Check if trend is UP
                 if sum(up) > trend_Threshold:
                     say('Price trending up. UP UP and AWAY')
-                    message = ('Price up to',price)
+                    message = (symbol,'Price up to',price)
                     say(message)
                     with open("trends.dat","a+") as f:
                         f.write(str(price)); comma = ','; f.write(comma); f.write(str(sum(up))); f.write('\n')
             else:                                         #If trend not up, do this.
                 if sum(down) > trend_Threshold:
                     say('Price trending down. DOWN goes FRASER')
-                    message = ('Price down to',price)
+                    message = (symbol,'Price down to',price)
                     say(message)
                     with open("trends.dat","a+") as f:
                         f.write(str(price)); comma = ','; f.write(comma); f.write(str(sum(down))); f.write('\n')
