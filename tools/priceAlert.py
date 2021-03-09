@@ -49,9 +49,10 @@ price = 0
 
 #QA Mode
 #qa_prices = [1,1.5,2,2,4,4,7,7.5,13,13,7,7,4,4.5,2,2,1,1]
-qa_prices = [1,1.5,1.4,2,2,4,4,7,7.5,13,13,7,7,4,4.5,9,2,3,2,5,1,1,2,4,1,7,2,9,22,5,3,10,25,6]  #Price trends
+#qa_prices = [1,1.5,1.4,2,2,4,4,7,7.5,13,13,7,7,4,4.5,9,2,3,2,5,1,1,2,4,1,7,2,9,22,5,3,10,25,6] 
+qa_prices = [0,1000,10000,0,999,190.89,192.49,191.72,192.99,193.0,192.5,192.82,191.0,189.03,190.57,191.77,193.01,193.0,193.1,193.21,192.89,192.68,191.49,192.2,192.45,192.63,191.5,192.91,194.62,195.2,194.31,192.62,0,200,205,209,214,218,221,229,235,245,255,300,330,400,300,200,100,90,80,0,192.38,192.98,191.28,191.15,191.97,192.03,192.05,191.67,191.11,191.0,192.99,193.34,193.5,193.6,194.0,193.99,193.53,193.48,193.93,193.75,193.5,193.0,192.58,192.02,191.32,189.15,188.5,188.85,189.7,189.51,190.97,190.6,191.5,191.06,191.63,190.63,189.92,189.31,190.07,190.37,189.66,189.09,0,190.32,180,170,160,150,140,130,120,110,100,90,80,70,60,50,40,30,0,190.67,190.09,190.32,190.9,190.43,190.69,191.0,191.32,191.01,191.43,191.47,190.61,190.25,189.31,189.19,190.21,189.99,190.87,191.08,190.39,190.16,190.2,190.9,191.33,190.97,191.13,191.46,192.08,192.51,193.72,193.11,192.52,193.3,193.24,192.34,192.5,193.0,193.36,193.81,193.69,193.94,193.87,194.07,194.48,194.74,195.15,197.15,198.54,198.0,198.26,198.14,196.78,197.36,195.98,195.53,195.41,195.81,195.5,195.57,195.55,196.85,197.0,196.16,196.17,196.29,196.85,196.75,196.31,196.05,196.56,196.17,195.05,193.0,192.77,192.5,192.38,192.95,193.73,194.32,195.6,194.49,193.74,193.8,193.99,194.63,194.4,194.15,194.09,194.51,193.18,191.75,191.58,192.83,193.72,194.5,193.72,194.5,]
 
-#import pdb; pdb.set_trace()    #QA
+#Detect qa mode
 if len(sys.argv) > 4: 
     if (sys.argv[4]) == 'qa':
         print ('>4 args')
@@ -73,17 +74,19 @@ def get_trend():
     
     pxHistory: List with all prices
     pxTrend: Last 5 prices
+    history_limit: how many ticks back in time to check for trends
     
     NOTES:
     Looking for $3 price movement in 5 minutes. With 13s interval, that is 13.8 tick checks
     
     '''
     global up, down, price, tick, PxDelta, trend_count
-
-    print (tick,tick) 
+    history_limit = 13                               #How many ticks to check for trends
+    trend_Threshold = 3                              #Net price move to trigger alert.
     
-    if trend_count == 13:                 #Determines trend check interval. This is max count before reset
+    if trend_count == history_limit:                 #Determines trend check interval. This is max count before reset
         trend_count = 0
+        say('Checking for trends')
     else:
         trend_count += 1                  #Add to trend count
     
@@ -96,30 +99,38 @@ def get_trend():
             down.append(PxDelta)
             
 
-    print ('up/down: ',up,'/',down)
+    print ('up/down: ',up,'/',down)   #QA
 
-    if trend_count == 13:                       #Only check for trends every 30 ticks
-        if len(up) > 13 or len(down) > 13.8:      #Check if either list is greater than 13.8
-            print ('up or down has now past 13.8')
-            say('Trend check active')
+
+    #TRUNCATE list if greater than history_limit
+    if len(up) > history_limit:
+        print('popping UP list           ^^^^^^^^^^^^^^^^^^^^^^^^')
+        time.sleep(1)
+        up.pop(0)
+        
+    if len(down) > history_limit:
+        print('popping DOWN list          VVVVVVVVVVVVVVVVVVVVVVV')
+        time.sleep(1)
+        down.pop(0)
+
+
+    if trend_count == history_limit:                       #Only check for trends every 30 ticks
+        if len(up) >= history_limit or len(down) >= history_limit:      #Check if either list is greater than history_limit
+            print ('up or down has now past history_limit')
+            say('Trend check active. History limit met')
             
-            #Trucate list if greater than 13
-            if len(up) > 13:
-                say('popping UP')
-                up.pop(0)
-            elif len(down) > 13:
-                say('popping DOWN')
-                down.pop(0)
-                
-            if sum(up) > sum(down):
-                if sum(up) > 3:
+            
+            
+            #TREND DIRECTION CHECKS
+            if sum(up) > sum(down):                       #Check if trend is UP
+                if sum(up) > trend_Threshold:
                     say('Price trending up. UP UP and AWAY')
                     message = ('Price up to',price)
                     say(message)
                     with open("trends.dat","a+") as f:
                         f.write(str(price)); comma = ','; f.write(comma); f.write(str(sum(up))); f.write('\n')
-            else:
-                if sum(down) > 3:
+            else:                                         #If trend not up, do this.
+                if sum(down) > trend_Threshold:
                     say('Price trending down. DOWN goes FRASER')
                     message = ('Price down to',price)
                     say(message)
