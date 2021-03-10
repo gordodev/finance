@@ -99,18 +99,28 @@ def get_trend():
         #TREND DIRECTION CHECKS
         if sum(up) > sum(down):                                             #Check if trend is UP
             PxNetDelta = (sum(up)-sum(down)); PxNetDelta=(round(PxNetDelta, 2))          #Net price movement
-            print ('PxNetDelta,',PxNetDelta) #QA
-            if PxNetDelta > 4 and PxDelta < 7:
+            print ('Price moved, $'+str(PxNetDelta)) #QA
+            
+            #             2 LEVELS OF PRICE UP SOUNDS
+            if PxNetDelta > 4 and PxNetDelta < 7:              #LEVEL 1 SOUNDS
+                say ('MILLIONAIRE!')
                 print ('\n\n\n',symbol,'moving up!\n')
                 playsound ('moneyupshaggy.wav')
-            elif PxDelta > 6:
+                say ('SWEET Tendies!')
+                say ('Moving on up to the west side!')
+            
+            elif PxDelta > 6:                                  #LEVEL 2 SOUNDS
                 print ('\n\n\n',symbol,'moving WAY up!!\n')
+                say('BILLIONAIRE!')
                 playsound ('grindingWayne.wav')
-            message = ('PxNetDelta,',PxNetDelta) #QA
-            say(message)#QA
+                say ('Moon launch in progress. Please take me with you!')
+            
+            #message = ('Price moved up, $'+str(PxNetDelta)) #QA
+            #say(message)#QA
+
             if PxNetDelta > trend_Threshold:
                 say('Trending up. UP UP and AWAY')
-                message = (symbol,'moved up to',price)
+                message = (symbol,'moved up to $'+str(price))
                 say(message)
                 
                 with open("trends.dat","a+") as f:
@@ -121,19 +131,28 @@ def get_trend():
         else:                                         #If trend not up, do this.
             if sum(down) > trend_Threshold:
                 PxNetDelta = (sum(down)-sum(up)); PxNetDelta=(round(PxNetDelta, 2))
-                print ('PxNetDelta,',PxNetDelta) #QA
-                message = ('PxNetDelta,',PxNetDelta)#QA
+                print ('Price moved down,'+str(PxNetDelta)) #QA
+                message = ('Price moved down, $'+str(PxNetDelta))#QA
                 say(message)#QA
+            
                 if PxNetDelta > trend_Threshold:
                     say('Trending down. DOWN goes FRASER')
+                
                     if PxNetDelta > 4 and PxDelta < 7:
                             print ('\n\n\n!!!!   ',symbol,'moving DOWN  !!!!\n')
                             playsound ('gameDead.wav')
+                            say ('Here comes da paper hands. Wow. Just wow.')
+                            say ('Are you still trading meme stocks? You ape. Stay off Wall Street bets man. Seriously.')
+                    
                     elif PxNetDelta > 6:
                             print ('\n\n\n!!!!   ',symbol,'moving WAY DOWN  !!!!\n')
                             playsound ('trendDownBig.wma')
-                    message = ('WARNING,',symbol,'fell down to',price)
+                            say ('Now lets see if you really have, diamond hands. I Doubt it.')
+                            say ('Dont mind me, Im just a program. Im less than even a Reddit, ape.')
+                    
+                    message = ('WARNING, WARNING',symbol,'fell down to $'+str(price),'Sad bruh. Just sad. Are you gonna be OK?')
                     say(message)
+                    
                     with open("trends.dat","a+") as f:
                         message = (ctime+','+symbol+','+str(price)+','+str(sum(up))+'\n')
                         str(message)
@@ -225,12 +244,13 @@ def price_alert():
         #test_mode = 'qa'
         #import pdb; pdb.set_trace()
         
+        #                                              MAIN DISPLAY
         if test_mode == 'qa':
             price = qa_prices[count]
-            print ('\n\n\n\n\n\n\nMonitoring Price changes:','['+symbol+'@',price,']\n','Delta 1/2: ',delta1,delta2)
+            print ('\n\n\n\n\n\n\nMonitoring Price changes:','['+symbol+'@',price,']')
            
-            print ('count: ',count)
-            print ('price list len: ',len(qa_prices))
+            #print ('count: ',count) #QA
+            #print ('price list len: ',len(qa_prices))  #QA
             if count < (prices_len - 1):
                 count += 1
             else:
@@ -389,6 +409,8 @@ else:
     symbol = sys.argv[1]
     criticalLow = float(sys.argv[2])
     criticalHigh = float(sys.argv[3])
+
+print('Delta 1/2: ',delta1,delta2)
 
 #Begin price alert loop
 price_alert()
