@@ -158,18 +158,18 @@ def get_trend():
             down.append(PxDelta)
             
 
-    print ('up/down: ',up,'/',down)   #QA
+    #print ('up/down: ',up,'/',down)   #QA
 
 
     #TRUNCATE list if greater than history_limit
     if len(up) > history_limit:
-        #print('popping UP list           ^^^^^^^^^^^^^^^^^^^^^^^^')
-        time.sleep(1)
+        #print('popping UP list           ^^^^^^^^^^^^^^^^^^^^^^^^')   #QA
+        #time.sleep(1)                                                #QA
         up.pop(0)
         
     if len(down) > history_limit:
-        #print('popping DOWN list          VVVVVVVVVVVVVVVVVVVVVVV')
-        time.sleep(1)
+        #print('popping DOWN list          VVVVVVVVVVVVVVVVVVVVVVV')   #QA
+        #time.sleep(1)                                                #QA
         down.pop(0)
 
 
