@@ -160,8 +160,9 @@ def get_trend():
         
         #TREND DIRECTION CHECKS
         if sum(up) > sum(down):                                             #Check if trend is UP ---------------- UP UP UP UP
+            os.system('color AF') # sets the background to light green with WHITE
             PxNetDelta = (sum(up)-sum(down)); PxNetDelta=(round(PxNetDelta, 2))          #Net price movement
-            print ('Price moved, $'+str(PxNetDelta)) #QA
+            print ('Price moved, $'+str(PxNetDelta),'to [$'+str(price),']') #QA
             
             praises = ['Sweet TENDIES!','Moon launch detected','Can you lend me a dollar?','Can I drive your Lamborghini? Just around the block, I promise. Maybe.','Its TINDER time! You should shave','Why are you so awesome?','Whats it like to be rich?','Would you lend me your private jet if I paid for 0.222% of the gas?','I really like you! Will you be my friend?','Do you like your tendies, baked or fried?','Have you ever been to the moon?','Moon launch in progress. Please take me with you!']
             randomPraise = random.choice(praises)
@@ -339,13 +340,13 @@ def price_alert():
             ctime = (time.strftime("%H:%M:%S"))
             #print ('\n\n\n\n\n\n\nMonitoring Price changes------------:','['+symbol+'@',price,']            PROD')
             #print (price)
-            print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+'$'+str(price),']\n','Delta 1/2: ',delta1,delta2,'PROD alternate')
+            print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+' $'+str(price),']\n','Delta 1/2: ',delta1,delta2,'PROD alternate')
 
         
         
         #                CRITICAL TRIGGER
         #HIGH PRICE
-        if price > criticalHigh:
+        if price > criticalHigh:               #Bug? Is price and criticalHigh a string or float?
             os.system('color AF') # sets the background to light green with WHITE
             print ('\n\n\n\n\n**************   !! ',symbol,' PRICE ▲$'+str(price),' !!    ***************\n\nLOG INTO Brokerage account NOW! *****\n\nHIGH price trigger\n')
             message = (symbol,price,'Above high limit')
@@ -366,53 +367,37 @@ def price_alert():
         #FIRST ITERATION CHECK: Check if last price set
         
         if lastPx == "NULL":        #If lastPx not set yet, set it.(1st run)
-            lastPx = price; continue
+            lastPx = (price - 1); continue   #Setting last price initially to be slightly smaller than price.
         
-        #CHECK FOR STATIC PRICE; possible halt
-        if lastPx == price:                            #If no price change, then loop again
-                os.system('color 8F') # activate grey tones
+ #CHECK FOR STATIC PRICE; possible halt
+        epsilon = 0.00000001
+        if PxDelta < epsilon and lastPx == price:                            #If no price change, then loop again
                 print ('UNCH'); time.sleep(2)
-                if PxDelta > 0.1:     #Filter out slight price changes. Price must move more than this value to register as static price.
-                    unch_count += 1
-                    if unch_count == 1:
-                        #html_content = urlopen('https://www.nyse.com/trade-halt-current').read().decode('utf-8')
-                        '''
-                        #https://www.nyse.com/api/trade-halts/historical/download?symbol=GME&reason=&sourceExchange=&haltDateFrom=2020-03-10&haltDateTo=
-                        url=('https://www.nyse.com/api/trade-halts/historical/download?symbol='+'symbol'+'&reason=&sourceExchange=&haltDateFrom='+today+'&haltDateTo=')
-                        html_content = urlopen(url).read().decode('utf-8')
-                        matches = re.search('GME', html_content)
-                        print ('Here are matches: ',matches,'\n\n')
-                        if len(matches) > 0:
-                        '''
-                            
-                        print (symbol,'\n!!!!!!     possibly halted or market issue.    !!!!!!!!\n',unch_count,'times with no price change.\n')
-                        playsound ('unchLoud.mp3')
-                        message = ('Check if',symbol,'halted at ',price,'or market data issue')
-                        say (message)
-                        continue
-                
-                    if unch_count > 11:                        #Start playing subtle alert after 5 but < 11 times static
-                        print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
-                        playsound('unch.wav')
-                        if unch_count == 12:
-                            webbrowser.open('https://www.nyse.com/trade-halt-current', new=2)
-                        time.sleep(15)
-                        continue
-                    
-                    if unch_count > 21:                                        #Greater than 10 times, start 30s intervals
-                        print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.\n\nSLEEPING 30 seconds!')
-                        playsound('giveup.wma')
-                        time.sleep(25)
-                        continue
-                        
-                    else:
-                        message = (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
-                        say (message)
-                            
-                        continue
+                unch_count += 1
+                if unch_count == 1:
+                    print (symbol,'\n!!!!!!     possibly halted or market issue.    !!!!!!!!\n',unch_count,'times with no price change.\n')
+                    playsound ('unchLoud.mp3')
+                    continue
+
+                if unch_count <= 3:                        #Start playing subtle alert after 5 but < 11 times static
+                    print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
+                    playsound('unch.wav')
+                    time.sleep(5)
+                    continue
+
+                if unch_count > 3 and unch_count < 4:                                        #Greater than 10 times, start 30s intervals
+                    print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.\n\nSLEEPING 30 seconds!')
+                    playsound('giveup.wma')
+                    time.sleep(30)
+                    continue
+
+                else:
+                    message = (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
+                    say (message)
+
+                    continue
         else:
-            if unch_count > 0:
-                unch_count -= 1
+            unch_count -= 1
         
         #            UPTICK ALERT ---------    ^
         
@@ -434,6 +419,7 @@ def price_alert():
                 print ('\n\n▲\n▲\n▲\n▲\n▲\n▲\nuptick - ('+str(PxDelta)+')'+str(price))
                 message = (symbol,price,'High Volatility, up ▲'+str(PxDelta))
                 say(message)
+                playsound('grindingWayne.wav')
             
         #            DOWNTICK ALERT ---------   V
             
@@ -484,7 +470,7 @@ def price_alert():
         
         #Sleep interval for QA mode and PROD
         if test_mode == 'qa':
-            time.sleep(5)  #QA interval
+            time.sleep(1.5)  #QA interval
             print ('\n\nMODE: QA\n')
         else:
             print (time.strftime("%H:%M:%S"))
@@ -512,11 +498,12 @@ else:
     criticalLow = float(sys.argv[2])
     criticalHigh = float(sys.argv[3])
     print ('Welcome to Price Alert! Tracking',symbol,',Low alert: ▼',criticalLow,'High alert: ▲',criticalHigh)
+    print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
     message = ('Welcome to Price Alert! Tracking',symbol,', Low alert: ',criticalLow,'High alert: ',criticalHigh)
     say (message)
 
 
-print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
+#print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
 message = ('Price moves, that will trigger alerts are $'+str(delta1)+' and $'+str(delta2))
 say (message)
 playsound('introBeat.wma')
