@@ -98,21 +98,22 @@ def get_trend():
     
     
     if trend_count == history_limit:                 #Determines trend check interval. This is max count before reset
-        playsound('sonar.wma')
         trend_count = 0
-        message = (symbol)
-        say(message)
+        print ('\n\n\nCHECKING FOR PRICE TRENDS\n\n')
         
         #Capture current time
         ctime = (time.strftime("%H:%M:%S"))
         
         #TREND DIRECTION CHECKS
-        if sum(up) > sum(down):                                             #Check if trend is UP
+        if sum(up) > sum(down):                                             #Check if trend is UP ---------------- UP UP UP UP
+            playsound('sonar.wma')
             PxNetDelta = (sum(up)-sum(down)); PxNetDelta=(round(PxNetDelta, 2))          #Net price movement
             print ('Price moved, $'+str(PxNetDelta)) #QA
             
             #             2 LEVELS OF PRICE UP SOUNDS
             if PxNetDelta > 4 and PxNetDelta < 7:              #LEVEL 1 SOUNDS
+                print ('\n\n\n',symbol,'moving up!\n')
+                say (symbol)
                 say ('MILLIONAIRE!')
                 print ('\n\n\n',symbol,'moving up!\n')
                 playsound ('moneyupshaggy.wav')
@@ -121,6 +122,7 @@ def get_trend():
             
             elif PxDelta > 6:                                  #LEVEL 2 SOUNDS
                 print ('\n\n\n',symbol,'moving WAY up!!\n')
+                say (symbol)
                 say('BILLIONAIRE!')
                 playsound ('grindingWayne.wav')
                 say ('Moon launch in progress. Please take me with you!')
@@ -138,8 +140,10 @@ def get_trend():
                     str(message)
                     f.write(message)
                     #f.write(str(symbol,price)); comma = ','; f.write(comma); f.write(str(sum(up))); f.write('\n')
-        else:                                         #If trend not up, do this.
+        
+        else:                                                                 #Check if trend is DOWN ---------------- DOWN DOWN DOWN DOWN
             if sum(down) > trend_Threshold:
+                playsound('sonarDown.wma')                #plays only if move down more than threshold
                 PxNetDelta = (sum(down)-sum(up)); PxNetDelta=(round(PxNetDelta, 2))
                 if PxNetDelta > trend_Threshold:
                     print ('Price moved down,'+str(PxNetDelta)) #QA
@@ -433,7 +437,8 @@ else:
 print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
 message = ('Price moves, that will trigger alerts are $'+str(delta1)+' and $'+str(delta2))
 say (message)
-time.sleep(3)
+playsound('introBeat.wma')
+#time.sleep(3)
 
 #Begin price alert loop
 price_alert()
