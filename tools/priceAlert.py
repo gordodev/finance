@@ -367,7 +367,7 @@ def price_alert():
                 message = (symbol,price,'down',PxDelta)
                 say(message)
                 playsound('down.wav')
-                print ('^\n^\n^\downtick - (',PxDelta,') ',price)
+                print ('\n\ndowntick - (',PxDelta,') ',price)
                              
             if PxDelta > delta2:
                 os.system('color 4f') # sets the background to red
