@@ -1,6 +1,7 @@
 import time
 from yahoo_fin import stock_info as si
 from playsound import playsound
+from simple_colors import *
 import random
 import sys
 import os
@@ -13,14 +14,59 @@ engine = pyttsx3.init()
 engine.setProperty('rate', 255)  #Speed
 
 
-#Latest changes:
+
 '''
+SUMMARY:
+
+Track prices and alert about various types of price events
+
+FEATURES:
+
+Detect and alert market halt or market data static
+Detect data connection issue
+Detect basic upward or downward price trends
+High price and low price alarms
+Funny comments to user about success or failures
+Various visual alerts using color scheme changes
+Accept command line parameters
+QA/Test mode with simulated price data (4th user argument)
+Sound effects and music
+Price alert sensitivity setting (5th user argument)
+
+Future:
+
+AI, learn price patterns to help predict future moves
+Track user positions relative to stock price and indicate potential losses and gains.(user prompted for position data)
+Potential Trade consequence warning: Let's you know "If you sell now, you will have made $400" or "If the price goes down another $10, you loose $500"
+Track all prices for the day, then alert day highs/lows "New day high set on GME!"
+Detect pattern of moves in a single directions ^^^^^^^^ in a row or VVVVVVVV in a row. Round it down by ignoring price moves that are less than maybe '0.17'
+Phone alerts (phone app??)
+
+#Latest changes:
 3/10
 [x] change uptick/downtick to tick
 [x] Finish trends tracking
 [ ] Tweak trends tracking
 [ ] Cleaned up main display
 
+COLORS:
+
+0 = Black
+1 = Blue
+2 = Green
+3 = Aqua
+4 = Red
+5 = Purple
+6 = Yellow
+7 = White
+8 = Gray
+9 = Light Blue
+A = Light Green
+B = Light Aqua
+C = Light Red
+D = Light Purple
+E = Light Yellow
+F = Bright White
 '''
 
 
@@ -37,8 +83,11 @@ price = 0
 #SET SENSITIVITY LEVELS BASED ON USER ARGUMENTS OR DEFAULTS
 if len(sys.argv) > 5:
     PxDelta = 0; delta1=0.3*float(sys.argv[5]); delta2=0.45*float(sys.argv[5]) #PxDelta levels 1/2
+    delta1=round(delta1, 2); delta2=round(delta2, 2)
 else:
     PxDelta = 1.8; delta1=2.5; delta2=0.6                           #PxDelta levels default
+    delta1=round(delta1, 2); delta2=round(delta2, 2)
+    
 
 #Detect qa mode
 if len(sys.argv) > 4: 
@@ -151,6 +200,7 @@ def get_trend():
             if sum(down) > trend_Threshold:
                 PxNetDelta = (sum(down)-sum(up)); PxNetDelta=(round(PxNetDelta, 2))
                 if PxNetDelta > trend_Threshold:
+                    os.system('color 4f') # sets the background to red
                     print ('Price moved down,'+' $'+str(PxNetDelta)) #QA
                     playsound('sonarDown.wma')                #plays only if move down more than threshold
                     message = ('Price moved down, $'+str(PxNetDelta))#QA
@@ -266,12 +316,10 @@ def price_alert():
         #import pdb; pdb.set_trace()
         
         #                                              MAIN DISPLAY
-        if test_mode == 'qa':
+        if test_mode == 'qa':                                                   #TEST MODE
             price = qa_prices[count]
             ctime = (time.strftime("%H:%M:%S"))
             print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+' $'+str(price),']')
-            ctime = (time.strftime("%H:%M:%S"))
-            
            
             #print ('count: ',count) #QA
             #print ('price list len: ',len(qa_prices))  #QA
@@ -282,8 +330,9 @@ def price_alert():
                 #break
         
         
-        else:
+        else:                                                                     #PROD MODE
             get_price(symbol)
+            ctime = (time.strftime("%H:%M:%S"))
             #print ('\n\n\n\n\n\n\nMonitoring Price changes------------:','['+symbol+'@',price,']            PROD')
             #print (price)
             print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+'$'+str(price),']\n','Delta 1/2: ',delta1,delta2,'PROD alternate')
@@ -293,8 +342,8 @@ def price_alert():
         #                CRITICAL TRIGGER
         #HIGH PRICE
         if price > criticalHigh:
-            os.system('color 4f') # sets the background to red
-            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\nHIGH price trigger\n')
+            os.system('color AF') # sets the background to light green with WHITE
+            print ('\n\n\n\n\n**************   !! ',symbol,' PRICE ▲$'+str(price),' !!    ***************\n\nLOG INTO Brokerage account NOW! *****\n\nHIGH price trigger\n')
             message = (symbol,price,'Above high limit')
             say(message)
             playsound('highPrice_Belize.wav')
@@ -303,7 +352,7 @@ def price_alert():
         #LOW PRICE
         if price < criticalLow:
             os.system('color 4f') # sets the background to red
-            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\nLOW price trigger\n')
+            print ('\n\n\n\n\n**************   !! ',symbol,' PRICE ▼$'+str(price),' !!    ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\nLOW price trigger\n')
             message = (symbol,price,'Below low limit!')
             say(message)
             playsound('criticalAlert.wav')
@@ -317,6 +366,7 @@ def price_alert():
         
         #CHECK FOR STATIC PRICE; possible halt
         if lastPx == price:                            #If no price change, then loop again
+                os.system('color 8F') # activate grey tones
                 print ('UNCH'); time.sleep(2)
                 unch_count += 1
                 if unch_count == 1:
@@ -361,6 +411,7 @@ def price_alert():
                 playsound('Ring06.wav')
                 
             if PxDelta > delta2:         #Checking if uptick is large
+                os.system('color a4') # sets the background to light green with red text
                 print ('\n\n▲\n▲\n▲\n▲\n▲\n▲\nuptick - ('+str(PxDelta)+')'+str(price))
                 message = (symbol,price,'High Volatility, up ▲'+str(PxDelta))
                 say(message)
@@ -375,7 +426,7 @@ def price_alert():
             
             if PxDelta > delta1 and PxDelta < delta2:         #Checking if downtick is large
                 os.system('color cf') # sets the background to light red
-                print ('\n▼\n▼\n▼\n▼\n▼\n▼\n\n\ndowntick - (',PxDelta,') ',price)
+                print ('\ndowntick - (',PxDelta,') ',price,'\n▼\n▼\n▼\n▼\n\n\n')
                 print(symbol,price,'down',PxDelta)
                 message = (symbol,price,'down',PxDelta)
                 say(message)
@@ -383,7 +434,7 @@ def price_alert():
                              
             if PxDelta > delta2:
                 os.system('color 4f') # sets the background to red
-                print ("\n\n\n▼\n▼\n▼\n▼\n▼\n▼\n\nPRICE DROP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n')
+                print ("\n\nPRICE DROP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n▼\n▼\n▼\n▼\n\n\n')
                 message = (symbol,price,'High Volatility, down',PxDelta)
                 say(message)
                 playsound('AlarmClock.mp3')
@@ -426,7 +477,9 @@ def price_alert():
 '''
 Loop: Checking price and alerting if target prices hit or price outside of bounds
 '''
+os.system('color 1f') # sets the background to blue
 engine.setProperty('rate', 190)  #Speed slower
+
 #If user did not enter command line parameters, then use defaults
 if len(sys.argv) < 2:               #DEFAULT PARAMS
     symbol = "NULL"
