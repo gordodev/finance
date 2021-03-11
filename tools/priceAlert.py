@@ -1,6 +1,7 @@
 import time
 from yahoo_fin import stock_info as si
 from playsound import playsound
+import random
 import sys
 import os
 
@@ -106,26 +107,29 @@ def get_trend():
         
         #TREND DIRECTION CHECKS
         if sum(up) > sum(down):                                             #Check if trend is UP ---------------- UP UP UP UP
-            playsound('sonar.wma')
             PxNetDelta = (sum(up)-sum(down)); PxNetDelta=(round(PxNetDelta, 2))          #Net price movement
             print ('Price moved, $'+str(PxNetDelta)) #QA
+            
+            praises = ['Sweet TENDIES!','Moon launch detected','Can you lend me a dollar?','Can I drive your Lamborghini? Just around the block, I promise. Maybe.','Its TINDER time! You should shave','Why are you so awesome?','Whats it like to be rich?','Would you lend me your private jet if I paid for 0.222% of the gas?','I really like you! Will you be my friend?','Do you like your tendies, baked or fried?','Have you ever been to the moon?','Moon launch in progress. Please take me with you!']
+            randomPraise = random.choice(praises)
             
             #             2 LEVELS OF PRICE UP SOUNDS
             if PxNetDelta > 4 and PxNetDelta < 7:              #LEVEL 1 SOUNDS
                 print ('\n\n\n',symbol,'moving up!\n')
+                playsound('sonar.wma')
                 say (symbol)
                 say ('MILLIONAIRE!')
                 print ('\n\n\n',symbol,'moving up!\n')
                 playsound ('moneyupshaggy.wav')
-                say ('SWEET Tendies!')
-                say ('Moving on up to the west side!')
-            
+                say (randomPraise)
+                
             elif PxDelta > 6:                                  #LEVEL 2 SOUNDS
                 print ('\n\n\n',symbol,'moving WAY up!!\n')
+                playsound('sonar.wma')
                 say (symbol)
                 say('BILLIONAIRE!')
                 playsound ('grindingWayne.wav')
-                say ('Moon launch in progress. Please take me with you!')
+                say (randomPraise)
             
             #message = ('Price moved up, $'+str(PxNetDelta)) #QA
             #say(message)#QA
@@ -142,11 +146,13 @@ def get_trend():
                     #f.write(str(symbol,price)); comma = ','; f.write(comma); f.write(str(sum(up))); f.write('\n')
         
         else:                                                                 #Check if trend is DOWN ---------------- DOWN DOWN DOWN DOWN
+            digs = ['Here comes da paper hands','Wow. Just wow.','Are you still trading meme stocks? You ape.','Stay off Wall Street bets man. Seriously.','Sad bruh. Just sad. Are you gonna be OK?','Money to burn. Wish I was rich like you.','What in the holy flat earth, are you doing man?','This is a GREAT program, but these stock picks, are all you!','OK Boomer. Im sorry. I did not mean that. Actually. Yes. Yes, I did.','You would have better luck on Tinder','What will you do when all your money is gone?','Walmart is hiring. Check, monster.com','Do you have any idea how much garbage men get paid? You should look into it.','You are more disappointing than an unsalted pretzel', 'I’ll never forget the first time we met. But I’ll keep trying',' It’s impossible to underestimate you','Don’t be ashamed of who you are. That’s your parents’ job.','You are like a cloud. When you disappear, it’s a beautiful day','Somewhere out there is a tree tirelessly producing oxygen for you. You owe it an apology','Sorry, not sorry.','You have an entire life to be an idiot. Why not take today off?','Are you almost done with all of this drama? Because I need an intermission.','Maybe you should get a real job?','You do know the stock market is a casino right?','How low have you been wearing those socks?','Do you smell something?']
+            randomDig = random.choice(digs)
             if sum(down) > trend_Threshold:
-                playsound('sonarDown.wma')                #plays only if move down more than threshold
                 PxNetDelta = (sum(down)-sum(up)); PxNetDelta=(round(PxNetDelta, 2))
                 if PxNetDelta > trend_Threshold:
-                    print ('Price moved down,'+str(PxNetDelta)) #QA
+                    print ('Price moved down,'+' $'+str(PxNetDelta)) #QA
+                    playsound('sonarDown.wma')                #plays only if move down more than threshold
                     message = ('Price moved down, $'+str(PxNetDelta))#QA
                     say(message)#QA
                 
@@ -154,19 +160,19 @@ def get_trend():
                         say('Trending down. DOWN goes FRASER')
                     
                         if PxNetDelta > 4 and PxDelta < 7:
-                                print ('\n\n\n!!!!   ',symbol,'moving DOWN  !!!!\n')
+                                print ('\n\n▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼\n!!!!   ',symbol,'moving DOWN  !!!!\n')
                                 playsound ('gameDead.wav')
-                                say ('Here comes da paper hands. Wow. Just wow.')
-                                say ('Are you still trading meme stocks? You ape. Stay off Wall Street bets man. Seriously.')
+                                say (randomDig)
                         
                         elif PxNetDelta > 6:
-                                print ('\n\n\n!!!!   ',symbol,'moving WAY DOWN  !!!!\n')
+                                print ('\n▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼\n▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼\n\n!!!!   ',symbol,'moving WAY DOWN  !!!!\n')
+                                print('▼\n▼\n▼\n▼\n▼\nWARNING, WARNING',symbol,'fell down to $'+str(price))
                                 playsound ('trendDownBig.wma')
-                                say ('Now lets see if you really have, diamond hands. I Doubt it.')
-                                say ('Dont mind me, Im just a program. Im less than even a Reddit, ape.')
+                                say (randomDig)
+                                message = ('WARNING, WARNING',symbol,'fell down to $'+str(price))
+                                say(message)
                         
-                        message = ('WARNING, WARNING',symbol,'fell down to $'+str(price),'Sad bruh. Just sad. Are you gonna be OK?')
-                        say(message)
+                        
                         
                         with open("trends.dat","a+") as f:
                             message = (ctime+','+symbol+','+str(price)+','+str(sum(up))+'\n')
@@ -288,7 +294,7 @@ def price_alert():
         #HIGH PRICE
         if price > criticalHigh:
             os.system('color 4f') # sets the background to red
-            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\nHIGH price trigger\n')
+            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\nHIGH price trigger\n')
             message = (symbol,price,'Above high limit')
             say(message)
             playsound('highPrice_Belize.wav')
@@ -297,7 +303,7 @@ def price_alert():
         #LOW PRICE
         if price < criticalLow:
             os.system('color 4f') # sets the background to red
-            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\n\nLOW price trigger\n')
+            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\nLOW price trigger\n')
             message = (symbol,price,'Below low limit!')
             say(message)
             playsound('criticalAlert.wav')
@@ -343,19 +349,20 @@ def price_alert():
         
         if price > lastPx:          #Checking if price increased
             
-            tick = "up"
+            tick = "up"; print ('▲')
             PxDelta = round((price-lastPx),2)
             os.system('color 02') # sets the foreground green
             
-            if PxDelta > delta1:         #Checking if uptick is large
+            if PxDelta > delta1 and PxDelta < delta2:         #Checking if uptick is large
                 os.system('color af') # sets the background to light green
+                print ('\n\n▲\n▲\n▲\n▲\n▲\n▲\n▲\n\nuptick - (',PxDelta,') ',price)
                 message = (symbol,price,'up',PxDelta)
                 say(message)
                 playsound('Ring06.wav')
-                print ('^\n^\n^\nuptick - (',PxDelta,') ',price)
                 
             if PxDelta > delta2:         #Checking if uptick is large
-                message = (symbol,price,'High Volatility, up',PxDelta)
+                print ('\n\n▲\n▲\n▲\n▲\n▲\n▲\nuptick - ('+str(PxDelta)+')'+str(price))
+                message = (symbol,price,'High Volatility, up ▲'+str(PxDelta))
                 say(message)
             
         #            DOWNTICK ALERT ---------   V
@@ -363,19 +370,20 @@ def price_alert():
         elif price < lastPx:       #Checking if price decreased
             
             PxDelta = round((lastPx-price),2)
-            tick = "down"
+            tick = "down"; print ('▼')
             os.system('color 04') # sets the foreground red
             
-            if PxDelta > delta1:         #Checking if downtick is large
+            if PxDelta > delta1 and PxDelta < delta2:         #Checking if downtick is large
                 os.system('color cf') # sets the background to light red
-                print ('\n\ndowntick - (',PxDelta,') ',price)
+                print ('\n▼\n▼\n▼\n▼\n▼\n▼\n\n\ndowntick - (',PxDelta,') ',price)
+                print(symbol,price,'down',PxDelta)
                 message = (symbol,price,'down',PxDelta)
                 say(message)
                 playsound('down.wav')
                              
             if PxDelta > delta2:
                 os.system('color 4f') # sets the background to red
-                print ("PRICE DROP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n')
+                print ("\n\n\n▼\n▼\n▼\n▼\n▼\n▼\n\nPRICE DROP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n')
                 message = (symbol,price,'High Volatility, down',PxDelta)
                 say(message)
                 playsound('AlarmClock.mp3')
@@ -418,7 +426,7 @@ def price_alert():
 '''
 Loop: Checking price and alerting if target prices hit or price outside of bounds
 '''
-
+engine.setProperty('rate', 190)  #Speed slower
 #If user did not enter command line parameters, then use defaults
 if len(sys.argv) < 2:               #DEFAULT PARAMS
     symbol = "NULL"
@@ -431,14 +439,16 @@ else:
     symbol = sys.argv[1]
     criticalLow = float(sys.argv[2])
     criticalHigh = float(sys.argv[3])
-    print ('Welcome to Price Alert!, Low alert: ',criticalLow,'High alert: ',criticalHigh)
+    print ('Welcome to Price Alert!, Low alert: ▼',criticalLow,'High alert: ▲',criticalHigh)
     message = ('Welcome to Price Alert!, Low alert: ',criticalLow,'High alert: ',criticalHigh)
     say (message)
+
 
 print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
 message = ('Price moves, that will trigger alerts are $'+str(delta1)+' and $'+str(delta2))
 say (message)
 playsound('introBeat.wma')
+engine.setProperty('rate', 255)  #Speed faster
 #time.sleep(3)
 
 #Begin price alert loop
