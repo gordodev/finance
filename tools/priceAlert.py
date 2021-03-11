@@ -288,19 +288,19 @@ def price_alert():
         #HIGH PRICE
         if price > criticalHigh:
             os.system('color 4f') # sets the background to red
+            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\n\nHIGH price trigger\n')
             message = (symbol,price,'Above high limit')
             say(message)
             playsound('highPrice_Belize.wav')
-            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\n\nHIGH price trigger\n')
             say ('high price breached')
                     
         #LOW PRICE
         if price < criticalLow:
             os.system('color 4f') # sets the background to red
+            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\n\nLOW price trigger\n')
             message = (symbol,price,'Below low limit!')
             say(message)
             playsound('criticalAlert.wav')
-            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\n\nLOW price trigger\n')
             say ('low price breached')
         
         
