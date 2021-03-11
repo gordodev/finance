@@ -287,7 +287,7 @@ def get_price(name):
             price=si.get_live_price(name) #Get price from Yahoo
             #price=si.get_live_price(symbol) #Get price from Yahoo
             #print (price)
-            price = round(price, 2)
+            price = round(price, 3)
             #print (price)
     except:
             print ('NO DATA')
@@ -372,40 +372,44 @@ def price_alert():
         if lastPx == price:                            #If no price change, then loop again
                 os.system('color 8F') # activate grey tones
                 print ('UNCH'); time.sleep(2)
-                unch_count += 1
-                if unch_count == 1:
-                    #html_content = urlopen('https://www.nyse.com/trade-halt-current').read().decode('utf-8')
-                    '''
-                    #https://www.nyse.com/api/trade-halts/historical/download?symbol=GME&reason=&sourceExchange=&haltDateFrom=2020-03-10&haltDateTo=
-                    url=('https://www.nyse.com/api/trade-halts/historical/download?symbol='+'symbol'+'&reason=&sourceExchange=&haltDateFrom='+today+'&haltDateTo=')
-                    html_content = urlopen(url).read().decode('utf-8')
-                    matches = re.search('GME', html_content)
-                    print ('Here are matches: ',matches,'\n\n')
-                    if len(matches) > 0:
-                    '''
-                    webbrowser.open('https://www.nyse.com/trade-halt-current', new=2)
-                        
-                    print (symbol,'\n!!!!!!     possibly halted or market issue.    !!!!!!!!\n',unch_count,'times with no price change.\n')
-                    playsound ('unchLoud.mp3')
-                    continue
-            
-                if unch_count <= 11:                        #Start playing subtle alert after 5 but < 11 times static
-                    print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
-                    playsound('unch.wav')
-                    time.sleep(5)
-                    continue
+                if PxDelta > 0.1:     #Filter out slight price changes. Price must move more than this value to register as static price.
+                    unch_count += 1
+                    if unch_count == 1:
+                        #html_content = urlopen('https://www.nyse.com/trade-halt-current').read().decode('utf-8')
+                        '''
+                        #https://www.nyse.com/api/trade-halts/historical/download?symbol=GME&reason=&sourceExchange=&haltDateFrom=2020-03-10&haltDateTo=
+                        url=('https://www.nyse.com/api/trade-halts/historical/download?symbol='+'symbol'+'&reason=&sourceExchange=&haltDateFrom='+today+'&haltDateTo=')
+                        html_content = urlopen(url).read().decode('utf-8')
+                        matches = re.search('GME', html_content)
+                        print ('Here are matches: ',matches,'\n\n')
+                        if len(matches) > 0:
+                        '''
+                            
+                        print (symbol,'\n!!!!!!     possibly halted or market issue.    !!!!!!!!\n',unch_count,'times with no price change.\n')
+                        playsound ('unchLoud.mp3')
+                        message = ('Check if',symbol,'halted at ',price,'or market data issue')
+                        say (message)
+                        continue
                 
-                if unch_count > 11:                                        #Greater than 10 times, start 30s intervals
-                    print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.\n\nSLEEPING 30 seconds!')
-                    playsound('giveup.wma')
-                    time.sleep(30)
-                    continue
+                    if unch_count > 11:                        #Start playing subtle alert after 5 but < 11 times static
+                        print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
+                        playsound('unch.wav')
+                        if unch_count == 12:
+                            webbrowser.open('https://www.nyse.com/trade-halt-current', new=2)
+                        time.sleep(15)
+                        continue
                     
-                else:
-                    message = (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
-                    say (message)
+                    if unch_count > 21:                                        #Greater than 10 times, start 30s intervals
+                        print (symbol,'possibly halted or market issue.',unch_count,'times with no price change.\n\nSLEEPING 30 seconds!')
+                        playsound('giveup.wma')
+                        time.sleep(25)
+                        continue
                         
-                    continue
+                    else:
+                        message = (symbol,'possibly halted or market issue.',unch_count,'times with no price change.')
+                        say (message)
+                            
+                        continue
         else:
             if unch_count > 0:
                 unch_count -= 1
@@ -507,8 +511,8 @@ else:
     symbol = sys.argv[1]
     criticalLow = float(sys.argv[2])
     criticalHigh = float(sys.argv[3])
-    print ('Welcome to Price Alert!, Low alert: ▼',criticalLow,'High alert: ▲',criticalHigh)
-    message = ('Welcome to Price Alert!, Low alert: ',criticalLow,'High alert: ',criticalHigh)
+    print ('Welcome to Price Alert! Tracking',symbol,',Low alert: ▼',criticalLow,'High alert: ▲',criticalHigh)
+    message = ('Welcome to Price Alert! Tracking',symbol,', Low alert: ',criticalLow,'High alert: ',criticalHigh)
     say (message)
 
 
