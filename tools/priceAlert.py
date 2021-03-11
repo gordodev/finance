@@ -3,6 +3,10 @@ from yahoo_fin import stock_info as si
 from playsound import playsound
 from simple_colors import *
 import random
+import webbrowser
+from urllib.request import urlopen
+import re
+from datetime import datetime; today=datetime.today().strftime('%Y-%m-%d')
 import sys
 import os
 
@@ -370,6 +374,17 @@ def price_alert():
                 print ('UNCH'); time.sleep(2)
                 unch_count += 1
                 if unch_count == 1:
+                    #html_content = urlopen('https://www.nyse.com/trade-halt-current').read().decode('utf-8')
+                    '''
+                    #https://www.nyse.com/api/trade-halts/historical/download?symbol=GME&reason=&sourceExchange=&haltDateFrom=2020-03-10&haltDateTo=
+                    url=('https://www.nyse.com/api/trade-halts/historical/download?symbol='+'symbol'+'&reason=&sourceExchange=&haltDateFrom='+today+'&haltDateTo=')
+                    html_content = urlopen(url).read().decode('utf-8')
+                    matches = re.search('GME', html_content)
+                    print ('Here are matches: ',matches,'\n\n')
+                    if len(matches) > 0:
+                    '''
+                    webbrowser.open('https://www.nyse.com/trade-halt-current', new=2)
+                        
                     print (symbol,'\n!!!!!!     possibly halted or market issue.    !!!!!!!!\n',unch_count,'times with no price change.\n')
                     playsound ('unchLoud.mp3')
                     continue
@@ -465,7 +480,7 @@ def price_alert():
         
         #Sleep interval for QA mode and PROD
         if test_mode == 'qa':
-            #time.sleep(1)  #QA interval
+            time.sleep(5)  #QA interval
             print ('\n\nMODE: QA\n')
         else:
             print (time.strftime("%H:%M:%S"))
