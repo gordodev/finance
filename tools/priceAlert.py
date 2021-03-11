@@ -288,7 +288,7 @@ def price_alert():
         #HIGH PRICE
         if price > criticalHigh:
             os.system('color 4f') # sets the background to red
-            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\n\nHIGH price trigger\n')
+            print ('**************   ',symbol,' PRICE ',price,' !!          ***************\n\nLOG INTO Brokerage account NOW! *****\n\n\nHIGH price trigger\n')
             message = (symbol,price,'Above high limit')
             say(message)
             playsound('highPrice_Belize.wav')
@@ -368,17 +368,18 @@ def price_alert():
             
             if PxDelta > delta1:         #Checking if downtick is large
                 os.system('color cf') # sets the background to light red
+                print ('\n\ndowntick - (',PxDelta,') ',price)
                 message = (symbol,price,'down',PxDelta)
                 say(message)
                 playsound('down.wav')
-                print ('\n\ndowntick - (',PxDelta,') ',price)
                              
             if PxDelta > delta2:
                 os.system('color 4f') # sets the background to red
+                print ("PRICE DROP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n')
                 message = (symbol,price,'High Volatility, down',PxDelta)
                 say(message)
                 playsound('AlarmClock.mp3')
-                print ("PRICE DROP: ",PxDelta," [Last: ",lastPx," | Price: ",price,']\n')
+                
         '''    
         Medium level alarm for uptick/downtick should be here, then use tick variable to indicate up/down. 
         
