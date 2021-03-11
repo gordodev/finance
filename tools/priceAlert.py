@@ -259,7 +259,7 @@ def price_alert():
         if test_mode == 'qa':
             price = qa_prices[count]
             ctime = (time.strftime("%H:%M:%S"))
-            print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+'@',price,']')
+            print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+' $'+str(price),']')
             ctime = (time.strftime("%H:%M:%S"))
             
            
@@ -276,7 +276,7 @@ def price_alert():
             get_price(symbol)
             #print ('\n\n\n\n\n\n\nMonitoring Price changes------------:','['+symbol+'@',price,']            PROD')
             #print (price)
-            print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+'@',price,']\n','Delta 1/2: ',delta1,delta2,'PROD alternate')
+            print ('\n\n\n\n\n\n\n',ctime,'  CURRENT PRICE:','['+symbol+'$'+str(price),']\n','Delta 1/2: ',delta1,delta2,'PROD alternate')
 
         
         
@@ -332,7 +332,8 @@ def price_alert():
                         
                     continue
         else:
-            unch_count -= 1
+            if unch_count > 0:
+                unch_count -= 1
         
         #            UPTICK ALERT ---------    ^
         
