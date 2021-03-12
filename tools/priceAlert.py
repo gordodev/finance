@@ -1,3 +1,4 @@
+#Just before rollback 3/12/21 11:35AM
 import time
 from yahoo_fin import stock_info as si
 from playsound import playsound
@@ -133,6 +134,26 @@ qa_prices = [10.12,10.17,10.21,10.2,10.2,10.22222222,10.22222222,10.2222222,10.2
 def get_symbol():
     global symbol
     symbol=input('Enter symbol: ')
+    
+def check_connection():
+    '''
+    Check Yahoo data is available
+    '''
+    
+    attempts = 0
+    while attempts < 2:
+    
+        try:
+            playsound('checkConnection.wav')
+            price=si.get_live_price(AAPL) #Check AAPL price available
+        except:
+                print ('NO DATA')
+                playsound('crashEcho.mp3')
+                attempts += 1
+                if attempts == 2:
+                    playsound('trendDownBig.wma')
+                    exit
+ 
     
 def get_trend():
     '''
@@ -281,22 +302,16 @@ def get_price(name):
     '''
     global symbol, price
     
-    try:
-            #print ('Try')
-            
-            #criticalHigh = int(sys.argv[3])
-            
-            price=si.get_live_price(name) #Get price from Yahoo
-            #price=si.get_live_price(symbol) #Get price from Yahoo
-            #print (price)
-            price = round(price, 3)
-            #print (price)
-    except:
-            print ('NO DATA')
-            playsound('crashEcho.mp3')
-        
-    #print ('Passed')
-    
+    attempts = 0
+    while attempts < 5:
+        try:
+                price=si.get_live_price(name) #Get price from Yahoo
+                price = round(price, 3)
+        except:
+                print ('NO DATA')
+                playsound('crashEcho.mp3')
+                accepts += 1
+                
     return price
 
 def price_alert():
@@ -314,6 +329,8 @@ def price_alert():
     prices_len = len(qa_prices)
     count = 0
     unch_count = 0
+    randomIntervals = [13,12,11,14,15]
+    print ('Hello')
     
     while True:
         
@@ -475,7 +492,12 @@ def price_alert():
             print ('\n\nMODE: QA\n')
         else:
             print (time.strftime("%H:%M:%S"))
-            time.sleep(13) #DEFAULT Interval
+            #randomInterval = random.choice(randomIntervals)
+            randomInterval = 5
+            time.sleep(randomInterval) #DEFAULT Interval
+            
+            
+            randomDig = random.choice(digs)
         
         
 
@@ -484,6 +506,7 @@ def price_alert():
 Loop: Checking price and alerting if target prices hit or price outside of bounds
 '''
 os.system('color 1f') # sets the background to blue
+check_connection() #Make sure Yahoo data is available
 engine.setProperty('rate', 190)  #Speed slower
 
 #If user did not enter command line parameters, then use defaults
@@ -502,6 +525,7 @@ else:
     print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
     message = ('Welcome to Price Alert! Tracking',symbol,', Low',criticalLow,'High',criticalHigh)
     say (message)
+    import pdb; pdb.set_trace() #QA
 
 
 #print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
