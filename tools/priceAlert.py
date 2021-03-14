@@ -17,7 +17,8 @@ os.system('color 0f') # activate defaul color scheme
 import pyttsx3
 engine = pyttsx3.init()
 engine.setProperty('rate', 255)  #Speed
-
+voice_id='HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
+engine.setProperty('voice', voice_id)
 
 
 '''
@@ -302,16 +303,22 @@ def get_price(name):
     '''
     global symbol, price
     
-    attempts = 0
-    while attempts < 5:
-        try:
-                price=si.get_live_price(name) #Get price from Yahoo
-                price = round(price, 3)
-        except:
-                print ('NO DATA')
-                playsound('crashEcho.mp3')
-                accepts += 1
-                
+    try:
+            #print ('Try')
+            
+            #criticalHigh = int(sys.argv[3])
+            
+            price=si.get_live_price(name) #Get price from Yahoo
+            #price=si.get_live_price(symbol) #Get price from Yahoo
+            #print (price)
+            price = round(price, 3)
+            #print (price)
+    except:
+            print ('NO DATA')
+            playsound('crashEcho.mp3')
+        
+    #print ('Passed')
+    
     return price
 
 def price_alert():
@@ -354,6 +361,7 @@ def price_alert():
         
         
         else:                                                                     #PROD MODE
+            print ('Hello get price call')
             get_price(symbol)
             ctime = (time.strftime("%H:%M:%S"))
             #print ('\n\n\n\n\n\n\nMonitoring Price changes------------:','['+symbol+'@',price,']            PROD')
@@ -496,17 +504,13 @@ def price_alert():
             randomInterval = 5
             time.sleep(randomInterval) #DEFAULT Interval
             
-            
-            randomDig = random.choice(digs)
-        
-        
 
 #     MAIN   -------------------------------------------------------------------    
 '''
 Loop: Checking price and alerting if target prices hit or price outside of bounds
 '''
 os.system('color 1f') # sets the background to blue
-check_connection() #Make sure Yahoo data is available
+#check_connection() #Make sure Yahoo data is available   BUG BUG BUG
 engine.setProperty('rate', 190)  #Speed slower
 
 #If user did not enter command line parameters, then use defaults
@@ -525,7 +529,7 @@ else:
     print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
     message = ('Welcome to Price Alert! Tracking',symbol,', Low',criticalLow,'High',criticalHigh)
     say (message)
-    import pdb; pdb.set_trace() #QA
+    #import pdb; pdb.set_trace() #QA
 
 
 #print('Price moves that will trigger price move alerts are, $'+str(delta1)+' $'+str(delta2))
